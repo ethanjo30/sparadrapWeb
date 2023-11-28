@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.baniere {
+    opacity: 0.6;
+    width: 100%;
+    height: 150px;
+    position: relative;
+    z-index: 1;
+}
+
+.nav-list {
+    padding:1rem 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-item {
+    margin-right: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav-item a:hover {
+    color: darkgreen;
+    letter-spacing: 1.2px;
+}
+
+.nav-item:first-child {
+    margin-right: auto;
+    margin-left: 2rem;
+}
+
+.nom {
+    position: absolute;
+    left: 15%;
+    top: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 700%;
+    color: darkgreen;
+    z-index: 2;
+}
+
+.main {
+    float: left;
+    width: calc(100% - 350px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, .1);
+    position: relative;
+    z-index: 2;
+}
+
+.sidebar {
+    float: right;
+    width: 350px;
+    height: 1370px;
+    padding: 27px;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar-title {
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+.sidebar-title:first-child {
+    margin-top: 0;
+}
+
+.conteneur {
+    margin: 30px auto;
+    max-width: 750px;
+}
+
+.title-main {
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: rgb(6, 161, 6);
+}
+
+.article {
+    position: relative;
+    margin: 30px 0;
+    padding-left: 220px;
+    min-height: 150px;
+}
+
+.article-img {
+    position: absolute;
+    float: left;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 150;
+    margin-right: 20px;
+}
+
+.article-title {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.conteneur-conseils {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1100px;
+    margin: 0px auto;
+}
+
+.article-img-conseils {
+    position: absolute;
+    width: 400px;
+    height: 150;
+}
+
+.article-conseils {
+    position: relative;
+    margin: 50px 40px;
+}
+
+.conseils {
+    margin-top: 340px;
+}
+
+.footer {
+    clear: both;
+    height: 50px;
+}

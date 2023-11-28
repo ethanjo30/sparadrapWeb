@@ -1,44 +1,102 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhml"
     xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="itf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>Sparadrap</title>
-</head>
-<body>
-    <nav>
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#">Se connecter</a></li>
-            <li class="nav-item"><a href="#">Votre pharmacie</a></li>
-            <li class="nav-item"><a href="#">Offre du mois</a></li>
-            <li class="nav-item"><a href="#">Actualites</a></li>
-            <li class="nav-item"><a href="#">Conseil Sante</a></li>
-            <li class="nav-item"><a href="#">Service en ligne</a></li>
-        </ul>
-    </nav>
-    <img src="image/fond de page.jpg" alt="">
-    <bouton class="Pharmacien" type="bouton">Espace pharmacien</bouton>
-    <bouton class="Visiteur" type="bouton">Espace Visiteur</bouton>
-    <p>
-        Horaire d'ouverture <br>
-        Lundi fermé <br>
-        Mardi 9h-12h 14h-19h <br>
-        Mercredi 9h-12h 14h-19h <br>
-        Jeudi 9h-12h 14h-19h <br>
-        Vendredi 9h-12h 14h-19h <br>
-        samedi 9h-12h 14h-18h
-    </p>
-    <h2> Nous contacter</h2>
-    <p>tel: 03.95.84.75.96</p>
-    <p>fax: 03.95.84.12.35</p>
-    <p>email: saparadrap.contacte@gmail.com</p>
-    <h2> Nous trouver</h2>
-    <h3> Adresse</h3>
-    <p>58 Rue du Général Leclerc, 54670 Custines</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10513.631384742377!2d6.128000020980827!3d48.793194179951335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!
-    3m3!1m2!1s0x4794bdd43d53bb8d%3A0x9bdd295d998f2bdb!2sPharmacie%20de%20la%20Mauch%C3%A8re!5e0!3m2!1sfr!2sfr!4v1701093023937!5m2!1sfr!2sfr" width="1500" height="450" 
-    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</body>
+    <head>
+        <meta charset="itf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="acceuil.css">
+        <title>Sparadrap</title>
+    </head>
+    <body>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#">Se connecter</a></li>
+                <li class="nav-item"><a href="#">Votre pharmacie</a></li>
+                <li class="nav-item"><a href="#">Offre du mois</a></li>
+                <li class="nav-item"><a href="#">Actualites</a></li>
+                <li class="nav-item"><a href="#">Conseil Sante</a></li>
+                <li class="nav-item"><a href="#">Service en ligne</a></li>
+            </ul>
+        </nav>
+        <img class="baniere" src="image/fond de page.jpg" alt="">
+        <h1 class="nom">Pharmacie Sparadrap</h1>
+        <main class="main">
+            <div class="conteneur">
+                <h2 class="title-main">Nos offre du mois</h2>
+            <Article class="article">
+                <img class="article-img" src="image/doliprane.jpg" alt="">
+                <h3 class="article-title"> Doliprane 1000 Mg Comprimé Plq/8</h3>
+                <div> Offre du 01/12/2023 au 31/12/2023</div>
+                <p> Médicament analgesique au prix de 2euros la boite</p>
+            </Article>
+            <Article class="article">
+                <img class="article-img" src="image/spray-nasal.jpg" alt="">
+                <h3 class="article-title"> Quies Décongestionneur Adulte</h3>
+                <div> Offre du 15/12/2023 au 31/01/2024</div>
+                <p> debouchez votre nez pour 1,5 euro le spray</p>
+            </Article>
+            </div>
+            <div>
+            <h2 class="title-main">Nos conseils santé</h2>
+            <div class="conteneur-conseils">
+            <Article class="article-conseils">
+                <img class="article-img-conseils" src="image/douleur.jpg" alt="">
+                <p class="conseils">
+                    La douleur : un signal d’alarme<br>
+                    Certaines douleurs agissent tel un signal d’alarme destiné à vous faire réagir, d’autres persistent plus longtemps devenant des douleurs quotidiennes et 
+                    récurrentes. Quelle que soit la douleur, son ressenti est subjectif. Il varie en fonction des personnes, des émotions, du niveau de stress… nous ne 
+                    réagissons pas tous de la même manière face à la douleur.<br><br>
+                    Ne laissez pas vos douleurs s’installer ! Les douleurs peuvent être prises en charge pour éviter ou réduire leur impact sur votre 
+                    qualité de vie : sommeil, appétit, moral, disponibilité physique, etc. <br>
+                    Douleur aiguë et douleur chronique, comment les distinguer ?<br>
+                    Symptômes et durée permettent de les distinguer :<br>
+                    Les traitements médicamenteux de la douleur<br>
+                    Avec ou sans prescription médicale, utilisés occasionnellement ou lors d’une maladie chronique, les médicaments contre la douleur sont :<br>
+                    sûrs et efficaces lorsqu’ils sont correctement utilisés<br>
+                    peuvent présenter des risques lors d’une utilisation inadéquate en automédication<br>
+                    Paracétamol, ibuprofène, opioïdes … .
+                </p>
+            </Article>
+            <Article class="article-conseils">
+                <img class="article-img-conseils" src="image/grippe-conseils.png" alt="">
+                <p class="conseils">
+                    Se protéger contre la grippe c'est essentiel<br>
+                    La grippe est une infection respiratoire d’origine virale très contagieuse. Les symptômes les plus caractéristiques sont une forte fièvre, des courbatures, 
+                    une grosse fatigue, ainsi que des maux de tête. Souvent considérée comme une maladie bénigne, elle est pourtant  à l’origine de nombreuses hospitalisations 
+                    et de décès. Elle peut toucher tout le monde, même les personnes en forme et en bonne santé.<br>
+                    Le meilleur moyen de protection contre la grippe c’est la vaccination<br>
+                    A partir du 17 octobre 2023, les pharmaciens Giropharm peuvent vacciner les personnes majeures mais aussi depuis cette année, les enfants à partir de 11 ans
+                    ciblés par les recommandations vaccinales.<br>
+                    Les enfants entre 2 et 14 ans représentent 37% des patients admis aux urgences pour syndrome grippal<br>
+                    Conformément au calendrier vaccinal, il est recommandé que, chaque année, soient vaccinées contre la grippe saisonnière :<br>
+                    Les personnes âgées ans et plus,<br>
+                    Les personnes à risque élevé de complications de la grippe à partir de 6 mois,<br>
+                    Les femmes enceintes,<br>
+                    L'entourage des nourrissons de moins de 6 mois présentant des facteurs de risques de grippe grave ainsi que l'entourage des personnes immunodéprimées.<br>
+                </p>
+            </Article>
+            </div>
+            </div>
+        </main>
+        <aside class="sidebar">
+            <img class="facade" src="image/facade.jpg" alt="" width="300">
+            <h3 class="sidebar-title">Horaire d'ouverture</h3>
+            <p>
+            Lundi fermé <br>Mardi 9h-12h 14h-19h <br>Mercredi 9h-12h 14h-19h <br>Jeudi 9h-12h 14h-19h <br>Vendredi 9h-12h 14h-19h <br>samedi 9h-12h 14h-18h
+            </p>
+            <h3 class="sidebar-title"> Nous contacter</h3>
+            <p> &#9742 03.95.84.75.96</p>
+            <p> 🖷 03.95.84.12.35</p>
+            <p> ✉ saparadrap.contact@gmail.com</p>
+            <h3 class="sidebar-title"> Nous trouver</h3>
+            <h4 class="Adresse"> Adresse</h4>
+            <p>58 Rue du Général Leclerc, 54670 Custines</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.409416536993!2d6.14447687686899!3d48.79316420529382!2m3!1f0!2f0!3f0!3m2!1i1024!
+                2i768!4f13.1!3m3!1m2!1s0x4794bdd43d53bb8d%3A0x9bdd295d998f2bdb!2sPharmacie%20de%20la%20Mauch%C3%A8re!5e0!3m2!1sfr!2sfr!4v1701167568930!5m2!1sfr!2sfr" 
+                width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </aside>
+    </body>
+    <FOOter>
+        crée par ethan
+    </FOOter>
 </html>
