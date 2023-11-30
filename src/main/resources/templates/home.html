@@ -16,7 +16,7 @@
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
 
-<title>Pharmacie sparadrap</title>
+<title>Liste des personne</title>
 
 <style>
 	body {
@@ -41,6 +41,7 @@
 	<div class="container special">
 		<h2 class="h2">Liste des personnes</h2>
 		<div class="table-responsive">
+			
 			<table class="table table-striped table-sm">
 				<thead>
 					<tr>
@@ -55,7 +56,7 @@
 					<tr th:if="${personne.empty}">
 						<td colspan="5">Aucune Persone en base de données</td>
 					</tr>
-					<tr th:each="personne: ${Personne}">
+					<tr th:each="personne: ${personne}">
 						<td><span th:text="${personne.nomPersonne}"> Nom </span></td>
 						<td><span th:text="${personne.prenomPersonne}"> Prénom </span></td>
 						<td><span th:text="${personne.idAdresse}"> Adresse </span></td>

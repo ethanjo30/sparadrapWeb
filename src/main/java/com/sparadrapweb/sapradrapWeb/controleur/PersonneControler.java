@@ -5,8 +5,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sparadrapweb.sapradrapWeb.model.Personne;
@@ -48,16 +51,12 @@ public class PersonneControler {
 		return new ModelAndView("redirect:/");		
 	}
 	
-	/**@PostMapping("/savePersonne")
-	public ModelAndView savePersonne(@ModelAttribute Personne personne) {
-		if(personne.getIdPersonne() != null) {
-			// Employee from update form has the password field not filled,
-			// so we fill it with the current password.
-			Personne current = service.getPersonne(personne.getIdPersonne());
-			personne.set(current.get());
+	@PostMapping("/savedPersonne")
+	public String savePersonne(@ModelAttribute Personne personne, BindingResult resultat, Model model) {
+		if(resultat.hasErrors()) {
+			return "formNewPersonne";
 		}
-
-		service.savedPersonne(personne);
-		return new ModelAndView("redirect:/");	
-	}*/
+		service.save(personne);
+		return"redirect:/";
+	}
 }
