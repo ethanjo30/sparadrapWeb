@@ -41,36 +41,36 @@ body {
 		<h2 class="h2">Modification d'une Personne</h2>
 		<div>
 			<form method="post"
-				th:action="@{/savePersonne}" th:object="${personne}">
+				th:action="@{/savedPersonne/{id}(id=${personne.id_Personne})}" th:object="${personne}">
 				<div class="form-group">
 					<input
-						type="hidden" th:field="*{nomPersonne}" class="form-control">
+						 th:field="*{id_Personne}"id="idPersonne" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="nomPersonne">Nom</label> 
 					<input
-						type="text" th:field="*{nomPersonne}" class="form-control" id="nomPersonne"
-						aria-describedby="nomPersonne" placeholder="Saisir le nom"> <small
+						type="text" th:field="*{nom_Personne}" class="form-control" id="nom_Personne"
+						aria-describedby="nom_Personne" placeholder="Saisir le nom"> <small
 						id="nomPersonne" class="form-text text-muted">Merci d'écrire le nom de la personne.</small>
 				</div>
 				<div class="form-group">
 					<label for="prenomPersonne">Prenom</label> 
 					<input
-						type="text" th:field="*{prenomPersonne}" class="form-control" id="prenomPersonne"
+						type="text" th:field="*{prenom_Personne}" class="form-control" id="prenomPersonne"
 						aria-describedby="prenomPersonne" placeholder="Saisir le prenom"> <small
 						id="prenomPersonne" class="form-text text-muted">Merci d'écrire le prenom de la personne.</small>
 				</div>
 				<div class="form-group">
 					<label for="telPersonne">Telephone</label> 
 					<input
-						type="text" th:field="*{telPersonne}" class="form-control" id="telPersonne"
+						type="text" th:field="*{tel_Personne}" class="form-control" id="telPersonne"
 						aria-describedby="telPersonne" placeholder="Saisir le telephone"> <small
 						id="telPersonne" class="form-text text-muted">Merci d'écrire le numero de la personne.</small>
 				</div>
 				<div class="form-group">
 					<label for="emailPersonne">Email</label> 
 					<input
-						type="text" th:field="*{emailPersonne}" class="form-control" id="emailPersonne"
+						type="text" th:field="*{email_Personne}" class="form-control" id="emailPersonne"
 						aria-describedby="emailPersonne" placeholder="Saisir l'email"> <small
 						id="emailPersonne" class="form-text text-muted">Merci d'écrire l'email de la personne.</small>
 				</div>

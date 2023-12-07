@@ -7,6 +7,6 @@ import com.sparadrapweb.sapradrapWeb.model.Personne;
 
 
 @Repository
-public interface PersonneProxy extends CrudRepository<Personne, Integer> {
+public interface PersonneRepo extends CrudRepository<Personne, Integer> {
     
 } 

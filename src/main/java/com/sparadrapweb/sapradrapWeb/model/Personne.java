@@ -14,20 +14,20 @@ public class Personne {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idpersonne")
-    private Integer idPersonne;
+    private Integer id_Personne;
 
 	@Column(name="nompersonne")
-	private String nomPersonne;
+	private String nom_Personne;
 	
 	@Column(name="prenompersonne")
-	private String prenomPersonne;
+	private String prenom_Personne;
 	
 	@Column(name="idadresse")
-	private int idAdresse;
+	private int id_Adresse;
 	
 	@Column(name="telpersonne")
-	private int telPersonne;
+	private int tel_Personne;
 
 	@Column(name="emailpersonne")
-	private String emailPersonne;
+	private String email_Personne;
 }
