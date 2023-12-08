@@ -23,7 +23,7 @@ public class AdresseController {
     @Autowired
 	private AdresseRepo service;
 	
-	@GetMapping("/adresse")
+	@GetMapping("/Adresse")
 	public String home(Model model) {
 		Iterable<Adresse> listAdresse = service.findAll();
 		model.addAttribute("adresse", listAdresse);

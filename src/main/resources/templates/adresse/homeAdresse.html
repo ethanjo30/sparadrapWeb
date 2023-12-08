@@ -58,15 +58,12 @@
 						<td><span th:text="${adresse.nom_Rue_Adresse}"> Rue </span></td>
 						<td><span th:text="${adresse.code_Postal_Adresse}"> Code postal </span></td>
 						<td><span th:text="${adresse.ville_Adresse}"> Ville </span></td>
-						<td>
-							<a th:href="@{/updateAdresse/{id}(id=${adresse.id_Adresse})}"><button class="btn btn-info">Modifier</button></a>
-							<a th:href="@{/deleteAdresse/{id}(id=${adresse.id_Adresse})}"><button class="btn btn-danger">Supprimer</button></a>						
+						<td>					
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-		<h4><a th:href="@{/createAdresse}">Ajouter une nouvelle personne</a></h4>
 
 	</div>
 

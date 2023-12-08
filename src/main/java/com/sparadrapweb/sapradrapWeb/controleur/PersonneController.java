@@ -23,7 +23,7 @@ public class PersonneController {
     @Autowired
 	private PersonneRepo service;
 	
-	@GetMapping("/")
+	@GetMapping("/Personne")
 	public String home(Model model) {
 		Iterable<Personne> listPersonne = service.findAll();
 		model.addAttribute("personne", listPersonne);
