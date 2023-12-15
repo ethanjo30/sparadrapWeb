@@ -27,10 +27,3 @@ body {
   background-size: cover;
   background-image: url(image/fond\ acceuil.jpg);
 }
-.mainPatient {
-  background-color: white;
-  margin: 300px 450px ;
-}
-.containerSpecial {
-  padding-left: 50px;
-}

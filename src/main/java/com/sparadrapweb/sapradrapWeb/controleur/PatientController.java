@@ -26,21 +26,21 @@ public class PatientController {
 	@GetMapping("/Patient")
 	public String home(Model model) {
 		Iterable<Patient> listPatient = service.findAll();
-		model.addAttribute("pat", listPatient);
+		model.addAttribute("patient", listPatient);
 		return "patient/homePatient";
 	}
 	
 	@GetMapping("/createPatient")
 	public String createPatient(Model model) {
 		Patient e = new Patient();
-		model.addAttribute("pat", e);
+		model.addAttribute("patient", e);
 		return "patient/formNewPatient";
 	}
 	
 	@GetMapping("/updatePatient/{id}")
 	public String updatePatient(@PathVariable("id") final Integer id, Model model) {
 		Optional<Patient> e = service.findById(id);		
-		e.ifPresent(value ->model.addAttribute("pat", value));	
+		e.ifPresent(value ->model.addAttribute("patient", value));	
 		return "patient/formUpdatePatient";		
 	}
 	
@@ -51,11 +51,11 @@ public class PatientController {
 	}
 	
 	@PostMapping("/savedPatient/{id}")
-	public String savedPatient(@PathVariable("id")final Integer id, Patient pat, BindingResult resultat, Model model) {
+	public String savedPatient(@PathVariable("id")final Integer id, Patient patient, BindingResult resultat, Model model) {
 		if(resultat.hasErrors()) {
 			return "patient/formUpdatePatient";
 		}
-		service.save(pat);
+		service.save(patient);
 		return"redirect:/";
 	}
 }

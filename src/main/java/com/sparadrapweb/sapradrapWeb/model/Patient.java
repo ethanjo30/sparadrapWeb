@@ -1,5 +1,7 @@
 package com.sparadrapweb.sapradrapWeb.model;
 
+import java.math.BigInteger;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +16,7 @@ public class Patient {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idpat")
-    private Integer id_pat;
+    private Integer id_Patient;
 
 	@Column(name="idpersonne")
 	private String id_Personne;
@@ -26,5 +28,5 @@ public class Patient {
 	private int date_Nais_Pat;
 	
 	@Column(name="numsecupat")
-	private int num_Secu_Pat;
+	private BigInteger num_Secu_Pat;
 }
