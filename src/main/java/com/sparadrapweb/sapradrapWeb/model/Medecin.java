@@ -8,31 +8,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
 @Entity
-public class Patient {
-    
+public class Medecin {
+
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idpat;
-	
-	@ManyToOne
-	@JoinColumn(name="idmut")
-	private Mutuelle mutuelle;
-	
-	@Column(name="datenaispat")
-	private int date_Nais_Pat;
-	
-	@Column(name="numsecupat")
-	private BigInteger num_Secu_Pat;
+	@Column(name="idmedecin")
+    private Integer id_Medecin;
 
-	@OneToOne
-	@JoinColumn(name="idpersonne") 
-	public Personne personne ;
-
+    @OneToOne
+	@JoinColumn(name="idpersonne")
+	public Personne personne;
+    
+	@Column(name="numagrement")
+	private BigInteger num_Agrement;
+	
+	@Column(name="spemedecin")
+	private String spe_Medecin;
 }
-

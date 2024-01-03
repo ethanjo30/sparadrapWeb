@@ -1,7 +1,5 @@
 package com.sparadrapweb.sapradrapWeb.model;
 
-import java.math.BigInteger;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,30 +7,33 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
 @Entity
-public class Patient {
+public class Mutuelle {
     
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idpat;
+	@Column(name="idmut")
+    private Integer id_mut;
+
+	@Column(name="nommut")
+	private String nom_Mut;
 	
 	@ManyToOne
-	@JoinColumn(name="idmut")
-	private Mutuelle mutuelle;
+	@JoinColumn(name = "idadresse")
+	public Adresse adresse;
 	
-	@Column(name="datenaispat")
-	private int date_Nais_Pat;
-	
-	@Column(name="numsecupat")
-	private BigInteger num_Secu_Pat;
+	@Column(name="telmut")
+	private int tel_Mut;
 
-	@OneToOne
-	@JoinColumn(name="idpersonne") 
-	public Personne personne ;
+	@Column(name="emailmut")
+	private String email_Mut;
 
+    @Column(name="depmut")
+	private String dep_Mut;
+
+    @Column(name="tauxrembmut")
+	private String taux_Remb_Mut;
 }
-
