@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
@@ -22,12 +24,15 @@ public class Personne {
 	@Column(name="prenompersonne")
 	private String prenom_Personne;
 	
-	@Column(name="idadresse")
-	private int id_Adresse;
+	@ManyToOne
+	@JoinColumn(name = "idadresse")
+	public Adresse adresse;
 	
 	@Column(name="telpersonne")
 	private int tel_Personne;
 
 	@Column(name="emailpersonne")
 	private String email_Personne;
+
+	
 }

@@ -26,7 +26,7 @@ public class PatientController {
 	@GetMapping("/Patient")
 	public String home(Model model) {
 		Iterable<Patient> listPatient = service.findAll();
-		model.addAttribute("patient", listPatient);
+		model.addAttribute("patients", listPatient);
 		return "patient/homePatient";
 	}
 	

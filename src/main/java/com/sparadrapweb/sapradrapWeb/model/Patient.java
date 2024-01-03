@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -15,18 +18,20 @@ public class Patient {
     
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idpat")
-    private Integer id_Patient;
-
-	@Column(name="idpersonne")
-	private String id_Personne;
+	private int idpat;
 	
 	@Column(name="idmut")
-	private String id_Mut;
+	private int id_Mut;
 	
 	@Column(name="datenaispat")
 	private int date_Nais_Pat;
 	
 	@Column(name="numsecupat")
 	private BigInteger num_Secu_Pat;
+
+	@OneToOne
+	@JoinColumn(name="idpersonne") 
+	public Personne personne ;
+
 }
+
