@@ -5,13 +5,12 @@
     color: black;
 }
 .dropdown {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  margin-left: 17%;
 }
 .logos {
     margin-right: auto;
     margin-left: 2rem;
-    width: 20%;
 }
 .btn-outline-primary {
     --bs-btn-hover-color: rgb(255, 255, 255);
@@ -25,5 +24,8 @@
 }
 body {
   background-size: cover;
-  background-image: url(image/fond\ acceuil.jpg);
+  background-image: url(/image/fondAcceuil.jpg);
+}
+.entete {
+  background-color: white;
 }

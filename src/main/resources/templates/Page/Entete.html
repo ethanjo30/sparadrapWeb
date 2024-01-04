@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/pageEntete.css">
+    <title>Document</title>
+</head>
+<body >
+    <header th:fragment ="entete" class="entete">
+        <NAV  class="navbar fixed-top bg-body-tertiary">
+            <img class="logos" src="/image/logosSparadrap.jpg" alt="">
+            <div class="dropdown">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">Liste</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/Patient">Patient</a></li>
+                        <li><a class="dropdown-item" href="/Medecin">Medecin</a></li>
+                        <li><a class="dropdown-item" href="/Medicament">Medicament</a></li>
+                    </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">Achat</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Avec Ordonance</a></li>
+                        <li><a class="dropdown-item" href="#">Sans Ordonance</a></li>
+                    </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Historique</button>
+            </div>
+        </NAV>
+    </header>
+    <main class="main">
+        
+    </main>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+</body>
+</html>
