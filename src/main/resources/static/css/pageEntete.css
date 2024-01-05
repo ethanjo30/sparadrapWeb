@@ -16,9 +16,9 @@
   background-color: rgb(42, 161, 155);
 }
 .btn-outline-primary{
-  --bs-btn-color: rgb(42, 161, 155);
-  --bs-btn-border-color: rgb(42, 161, 155);
-  --bs-btn-active-bg: rgb(42, 161, 155);
+  --bs-btn-color: rgb(9, 83, 11);
+  --bs-btn-border-color: rgb(9, 83, 11);
+  --bs-btn-active-bg: rgb(9, 83, 11);
 }
 body {
   background-size: cover;
@@ -26,18 +26,13 @@ body {
   padding-top: 0px;
 }
 .entete {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 .Ajouter a {
   text-decoration: none;
   color: black;
   font-style: italic;
   font-weight: bolder;
-}
-.Ajouter a:hover{
-  text-decoration: underline;
-}
-.Ajouter{
+  color: rgb(9, 83, 11);
   font-size: 2rem;
-  color: rgb(99, 222, 226);
 }
