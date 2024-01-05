@@ -5,27 +5,39 @@
     color: black;
 }
 .dropdown {
-  display: inline-flex;
-  margin-left: 17%;
+  display: inline-block;
+  justify-content: center;
+  margin: 0 10%;
 }
 .logos {
-    margin-right: auto;
-    margin-left: 2rem;
+  margin: 3px;
 }
-.btn-outline-primary {
-    --bs-btn-hover-color: rgb(255, 255, 255);
-    --bs-btn-border-color: black;
-    --bs-btn-hover-bg: rgb(42, 161, 155);
-    --bs-btn-active-color: ;
-    --bs-btn-active-bg: ;
+.btn:hover {
+  background-color: rgb(42, 161, 155);
 }
-.btn-outline-primary {
-  --bs-btn-color:rgb(42, 161, 155);
+.btn-outline-primary{
+  --bs-btn-color: rgb(42, 161, 155);
+  --bs-btn-border-color: rgb(42, 161, 155);
+  --bs-btn-active-bg: rgb(42, 161, 155);
 }
 body {
   background-size: cover;
   background-image: url(/image/fondAcceuil.jpg);
+  padding-top: 0px;
 }
 .entete {
   background-color: white;
+}
+.Ajouter a {
+  text-decoration: none;
+  color: black;
+  font-style: italic;
+  font-weight: bolder;
+}
+.Ajouter a:hover{
+  text-decoration: underline;
+}
+.Ajouter{
+  font-size: 2rem;
+  color: rgb(99, 222, 226);
 }
