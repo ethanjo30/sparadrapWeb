@@ -33,6 +33,13 @@ body {
   color: black;
   font-style: italic;
   font-weight: bolder;
-  color: rgb(9, 83, 11);
+  color: rgb(0, 0, 0);
   font-size: 2rem;
+  margin-left: 30%;
+}
+.H{
+  width: 100%;
+}
+.h2{
+  margin-left: 35%;
 }
