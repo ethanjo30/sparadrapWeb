@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,21 +28,21 @@ public class PatientController {
 	public String home(Model model) {
 		Iterable<Patient> listPatient = service.findAll();
 		model.addAttribute("patients", listPatient);
-		return "patient/homePatient";
+		return "Patient/homePatient";
 	}
 	
 	@GetMapping("/createPatient")
 	public String createPatient(Model model) {
 		Patient e = new Patient();
 		model.addAttribute("patient", e);
-		return "patient/formNewPatient";
+		return "Patient/formNewPatient";
 	}
 	
 	@GetMapping("/updatePatient/{id}")
 	public String updatePatient(@PathVariable("id") final Integer id, Model model) {
 		Optional<Patient> e = service.findById(id);		
 		e.ifPresent(value ->model.addAttribute("patient", value));	
-		return "patient/formUpdatePatient";		
+		return "Patient/formUpdatePatient";		
 	}
 	
 	@GetMapping("/deletePatient/{id}")
@@ -53,7 +54,7 @@ public class PatientController {
 	@PostMapping("/savedPatient/{id}")
 	public String savedPatient(@PathVariable("id")final Integer id, Patient patient, BindingResult resultat, Model model) {
 		if(resultat.hasErrors()) {
-			return "patient/formUpdatePatient";
+			return "Patient/formUpdatePatient";
 		}
 		service.save(patient);
 		return"redirect:/";

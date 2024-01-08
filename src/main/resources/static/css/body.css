@@ -1,0 +1,41 @@
+.Ajouter a {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    margin-left: 30%;
+  }
+  .Ajouter a:hover{
+    color: rgb(72, 132, 136,);
+  }
+  .H{
+    width: 100%;
+  }
+  .h2{
+    margin-left: 35%;
+  }
+  .titre {
+    font-size: 1.3rem;
+    color: rgb(9, 83, 11);
+  }
+  .form-control{
+    width: 300px;
+  }
+  .form{
+    display: flex;
+    justify-content: center;
+  }
+  .espaceForm{
+    margin-right: 10px;
+  }
+  .btn:hover{
+    background-color: rgb(9, 83, 11);
+  }
+  .btn-outline-success{
+    --bs-btn-color: rgb(9, 83, 11);
+  }
+  .btn-outline-success{
+    margin: 15px 620px;
+  }

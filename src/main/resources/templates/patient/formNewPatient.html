@@ -2,95 +2,100 @@
 <html xmlns="http://www.w3.org/1999/xhml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+		rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/pageEntete.css">
+	<link rel="stylesheet" href="/css/body.css">
 
 <title>ajout d'un patient</title>
 
-<style>
-body {
-	padding-top: 50px;
-}
-
-.special {
-	padding-top: 50px;
-}
-.btn btn-primary {
-	color: white;
-}
-</style>
 </head>
 <body>
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href=".">Système de gestion des patient</a>
+	<header th:replace="~{/Page/entete::Entete}"></header>
+	<main>
+		<div class="container special">
+			<h2 class="h2"><strong>Ajout d'un nouveaux patient</strong></h2>
+			<div>
+				<form method="post" th:action="@{/savePatient}" th:object="${patient}">
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="nom_Personne"><strong>Nom</strong></label> 
+							<input type="text" th:field="${patient.personne.nom_Personne}" class="form-control" 
+								id="nom_Personne"placeholder="Saisir le nom">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="prenom_Personne"><strong>Prenom</strong></label> 
+							<input type="text" th:field="${patient.personne.prenom_Personne}" class="form-control" 
+								id="prenom_Personne"placeholder="Saisir le prenom">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="date_Nais_Pat"><strong>Date de naissance</strong></label> 
+							<input type="date" th:field="${patient.date_Nais_Pat}" class="form-control" 
+								id="date_Nais_Pat">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="num_Secu_Pat"><strong>Numero de securite social</strong></label> 
+							<input type="text" th:field="${patient.num_Secu_Pat}" class="form-control" 
+								id="num_Secu_Pat" placeholder="Saisir le numero de securite social">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="tel_Personne"><strong>Telephone</strong></label> 
+							<input type="tel" th:field="${patient.personne.tel_Personne}" class="form-control" 
+								id="tel_Personne" placeholder="Saisir le telephone">
+						</div>
+						<div class="form-group">
+								<label class="titre" for="email_Personne"><strong>Email</strong></label> 
+								<input type="text" th:field="${patient.personne.email_Personne}" class="form-control" 
+									id="email_Personne" placeholder="Saisir l'email">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="nom_Mut"><strong>nom Mutuelle</strong></label> 
+							<input type="text" th:field="${patient.mutuelle.nom_Mut}" class="form-control" 
+								id="nom_Mut" placeholder="Saisir le mutuelle">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="num_Adresse"><strong>N° de la rue</strong></label> 
+							<input type="number" th:field="${patient.personne.adresse.num_Adresse}" class="form-control" 
+								id="num_Adresse"placeholder="Saisir le numero de la rue">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="rue_Adresse"><strong>Nom de la rue</strong></label> 
+							<input type="text" th:field="${patient.personne.adresse.nom_Rue_Adresse}" class="form-control" 
+								id="rue_Adresse" placeholder="Saisir le nom de la rue">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="code_Postal_Adresse"><strong>Code postal</strong></label> 
+							<input type="text" th:field="${patient.personne.adresse.code_Postal_Adresse}" class="form-control" 
+								id="code_Postal_Adresse" placeholder="Saisir le code postal">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="ville_Adresse"><strong>Ville</strong></label> 
+							<input type="text" th:field="${patient.personne.adresse.ville_Adresse}" class="form-control" 
+								id="ville_Adresse" placeholder="Saisir la ville">
+						</div>
+					</section>
+					<div>
+						<button type="button" class="btn btn-outline-success">Crée</button>
+					</div>
+				</form>
 			</div>
 		</div>
-	</nav>
-
-
-	<div class="container special">
-
-		<h2 class="h2">Ajout d'une nouveaux patient</h2>
-		<div>
-			<form method="post"
-				th:action="@{/savePatient}" th:object="${pat}">
-				<div class="form-group">
-					<input
-						type="hidden" th:field="*{nomPatient}" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="idPersonne">idPersonne</label> 
-					<input
-						type="text" th:field="*{idPersonne}" class="form-control" id="idPersonne"
-						aria-describedby="idPersonne" placeholder="Saisir le nom"> <small
-						id="idPersonne" class="form-text text-muted">Merci d'écrire le nom de la personne.</small>
-				</div>
-				<div class="form-group">
-					<label for="idMut">idMut</label> 
-					<input
-						type="text" th:field="*{idMut}" class="form-control" id="idMut"
-						aria-describedby="idMut" placeholder="Saisir le prenom"> <small
-						id="idMut" class="form-text text-muted">Merci d'écrire le prenom de la personne.</small>
-				</div>
-				<div class="form-group">
-					<label for="telPersonne">Telephone</label> 
-					<input
-						type="text" th:field="*{telPersonne}" class="form-control" id="telPersonne"
-						aria-describedby="telPersonne" placeholder="Saisir le telephone"> <small
-						id="telPersonne" class="form-text text-muted">Merci d'écrire le numero de la personne.</small>
-				</div>
-				<div class="form-group">
-					<label for="emailPersonne">Email</label> 
-					<input
-						type="text" th:field="*{emailPersonne}" class="form-control" id="emailPersonne"
-						aria-describedby="emailPersonne" placeholder="Saisir l'email"> <small
-						id="emailPersonne" class="form-text text-muted">Merci d'écrire l'email de la personne.</small>
-				</div>
-				
-				<button type="submit" class="btn btn-primary">Créer</button>
-			</form>
-			<a href="./"><button class="btn btn-primary"> Accueil</button></a>
-		</div>
-	</div>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"></script>
 </body>
 </html>

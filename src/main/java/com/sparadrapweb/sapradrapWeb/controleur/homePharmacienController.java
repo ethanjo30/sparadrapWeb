@@ -9,6 +9,6 @@ public class homePharmacienController {
 
     @GetMapping("/")
     public String home(Model model) {
-		return "pharmacien/pageHomePharmacien";
+		return "Pharmacien/pageHomePharmacien";
 	}
 }

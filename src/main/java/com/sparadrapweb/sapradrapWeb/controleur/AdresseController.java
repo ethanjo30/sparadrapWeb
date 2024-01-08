@@ -27,21 +27,21 @@ public class AdresseController {
 	public String home(Model model) {
 		Iterable<Adresse> listAdresse = service.findAll();
 		model.addAttribute("adresse", listAdresse);
-		return "adresse/homeAdresse";
+		return "Adresse/homeAdresse";
 	}
 	
 	@GetMapping("/createAdresse")
 	public String createAdresse(Model model) {
 		Adresse e = new Adresse();
 		model.addAttribute("adresse", e);
-		return "adresse/formNewAdresse";
+		return "Adresse/formNewAdresse";
 	}
 	
 	@GetMapping("/updateAdresse/{id}")
 	public String updateAdresse(@PathVariable("id") final Integer id, Model model) {
 		Optional<Adresse> e = service.findById(id);		
 		e.ifPresent(value ->model.addAttribute("adresse", value));	
-		return "adresse/formUpdateAdresse";		
+		return "Adresse/formUpdateAdresse";		
 	}
 	
 	@GetMapping("/deleteAdresse/{id}")
@@ -53,7 +53,7 @@ public class AdresseController {
 	@PostMapping("/savedAdresse/{id}")
 	public String savedAdresse(@PathVariable("id")final Integer id, Adresse adresse, BindingResult resultat, Model model) {
 		if(resultat.hasErrors()) {
-			return "adresse/formUpdateAdresse";
+			return "Adresse/formUpdateAdresse";
 		}
 		service.save(adresse);
 		return"redirect:/";
