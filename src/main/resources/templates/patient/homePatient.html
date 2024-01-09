@@ -27,10 +27,9 @@
 						<tr>
 							<th>nom</th>
 							<th>prenom</th>
-							<th colspan="4">adresse</th>
-							<th>idMut</th>
 							<th>DateNaisPat</th>
-							<th colspan="3">NumSecuPat</th>
+							<th>telephone</th>
+							<th colspan="3">email</th>
 						</tr>	
 					</thead>
 					<tbody>
@@ -40,13 +39,9 @@
 						<tr th:each="patient: ${patients}">
 								<td><span th:text="${patient.personne.nom_Personne}"></span></td>
 								<td><span th:text="${patient.personne.prenom_Personne}"></span></td>
-								<td><span th:text="${patient.personne.adresse.num_Adresse}"></span></td>
-								<td><span th:text="${patient.personne.adresse.nom_Rue_Adresse}"></span></td>
-								<td><span th:text="${patient.personne.adresse.code_Postal_Adresse}"></span></td>
-								<td><span th:text="${patient.personne.adresse.ville_Adresse}"></span></td>
-								<td><span th:text="${patient.mutuelle.nom_Mut}"></span></td>
-								<td><span th:text="${patient.date_Nais_Pat}"></span></td>
-								<td><span th:text="${patient.num_Secu_Pat}"></span></td>
+								<td><span th:text="${#dates.format(patient.date_Nais_Pat, 'dd/MM/yyyy')}"></span></td>
+								<td><span th:text="${patient.personne.tel_Personne}"></span></td>
+								<td><span th:text="${patient.personne.email_Personne}"></span></td>
 							<td>
 								<a th:href="@{/updatePatient/{id}(id=${patient.idpat})}"><button class="btn btn-info">Modifier</button></a>
 								<a th:href="@{/deletePatient/{id}(id=${patient.idpat})}"><button class="btn btn-danger">Supprimer</button></a>

@@ -1,6 +1,9 @@
 package com.sparadrapweb.sapradrapWeb.model;
 
 import java.math.BigInteger;
+import java.sql.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,8 +27,9 @@ public class Patient {
 	@JoinColumn(name="idmut")
 	private Mutuelle mutuelle;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="datenaispat")
-	private int date_Nais_Pat;
+	private Date date_Nais_Pat;
 	
 	@Column(name="numsecupat")
 	private BigInteger num_Secu_Pat;

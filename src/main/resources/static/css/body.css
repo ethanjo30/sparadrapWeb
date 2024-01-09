@@ -9,6 +9,7 @@
   }
   .Ajouter a:hover{
     color: rgb(72, 132, 136,);
+    text-decoration: underline;
   }
   .H{
     width: 100%;

@@ -35,7 +35,7 @@
 					<section class="form">
 						<div class="espaceForm">
 							<label class="titre" for="date_Nais_Pat"><strong>Date de naissance</strong></label> 
-							<input type="date" th:field="${patient.date_Nais_Pat}" class="form-control" 
+							<input type="Date" th:field="${patient.date_Nais_Pat}" class="form-control" 
 								id="date_Nais_Pat">
 						</div>
 						<div class="form-group">
@@ -58,9 +58,14 @@
 					</section>
 					<section class="form">
 						<div class="espaceForm">
-							<label class="titre" for="nom_Mut"><strong>nom Mutuelle</strong></label> 
-							<input type="text" th:field="${patient.mutuelle.nom_Mut}" class="form-control" 
-								id="nom_Mut" placeholder="Saisir le mutuelle">
+							<label class="titre" for="nom_Mut"><strong>Mutuelle</strong></label> 
+							<select id="SelectionMut" th:field="${patient.mutuelle}" class="form-select" aria-label="Default select example">
+								<option value=""></option>
+								<option value="Axa">Axa</option>
+								<option value="Mgen">Mgen</option>
+								<option value="Maaf">Maaf</option>
+								<option value="Alianz">Alianz</option>
+							  </select> 
 						</div>
 					</section>
 					<section class="form">
@@ -88,7 +93,7 @@
 						</div>
 					</section>
 					<div>
-						<button type="button" class="btn btn-outline-success">Crée</button>
+						<button type="submit" class="btn btn-outline-success">Crée</button>
 					</div>
 				</form>
 			</div>
