@@ -18,6 +18,7 @@ import com.sparadrapweb.sapradrapWeb.repository.PersonneRepo;
 
 import lombok.Data;
 
+
 @Data
 @Controller
 public class PatientController {
@@ -44,7 +45,14 @@ public class PatientController {
 		model.addAttribute("patient", e);
 		return "Patient/formNewPatient";
 	}
-	
+
+	@GetMapping("/infoPatient/{id}")
+    public String infoPatient(@PathVariable("id") final Integer id, Model model) {
+        Optional<Patient> e = service.findById(id);
+		e.ifPresent(value ->model.addAttribute("patient", value));	
+        return "infoPatient"; 
+    }
+
 	@GetMapping("/updatePatient/{id}")
 	public String updatePatient(@PathVariable("id") final Integer id, Model model) {
 		Optional<Patient> e = service.findById(id);		
@@ -55,7 +63,7 @@ public class PatientController {
 	@GetMapping("/deletePatient/{id}")
 	public ModelAndView deletePatient(@PathVariable("id") final Integer id) {
 		service.deleteById(id);
-		return new ModelAndView("redirect:/");		
+		return new ModelAndView("redirect:/Patient");		
 	}
 	
 	@PostMapping("/savePatient")

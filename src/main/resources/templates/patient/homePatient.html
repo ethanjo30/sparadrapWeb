@@ -43,6 +43,7 @@
 								<td><span th:text="${patient.personne.tel_Personne}"></span></td>
 								<td><span th:text="${patient.personne.email_Personne}"></span></td>
 							<td>
+								<a th:href="@{/infoPatient/{id}(id=${patient.idpat})}"><button class="btn btn-success">information</button></a>
 								<a th:href="@{/updatePatient/{id}(id=${patient.idpat})}"><button class="btn btn-info">Modifier</button></a>
 								<a th:href="@{/deletePatient/{id}(id=${patient.idpat})}"><button class="btn btn-danger">Supprimer</button></a>
 							</td>
