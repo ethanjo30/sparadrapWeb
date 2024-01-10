@@ -32,10 +32,7 @@
     margin-right: 10px;
   }
   .btn:hover{
-    background-color: rgb(9, 83, 11);
-  }
-  .btn-outline-success{
-    --bs-btn-color: rgb(9, 83, 11);
+    background-color: rgb(95, 141, 95);
   }
   .btn-outline-success{
     margin: 15px 620px;
