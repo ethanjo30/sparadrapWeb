@@ -5,7 +5,7 @@
     font-weight: bolder;
     color: rgb(0, 0, 0);
     font-size: 2rem;
-    margin-left: 30%;
+    margin-left: 33%;
   }
   .Ajouter a:hover{
     color: rgb(72, 132, 136,);
@@ -15,7 +15,7 @@
     width: 100%;
   }
   .h2{
-    margin-left: 35%;
+    margin-left: 43%;
   }
   .titre {
     font-size: 1.3rem;
@@ -36,4 +36,14 @@
   }
   .btn-outline-success{
     margin: 15px 620px;
+  }
+  .table-responsive {
+    margin: 0 33% ;
+  }
+  .titreNouveaux{
+    margin-left: 30%;
+  }
+  .btn-primary{
+    margin-left: 47%;
+    margin-top: 1%;
   }

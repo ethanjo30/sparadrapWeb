@@ -17,19 +17,16 @@
 		<div class="container special">
 			<div>
 				<h2 class="h2"><strong>Liste des medecin</strong></h2>
-				<h4 class="Ajouter"><a th:href="@{/createPatient}">Ajouter un nouveau medecin</a></h4>
+				<h4 class="Ajouter"><a th:href="@{/createMedecin}">Ajouter un nouveau medecin</a></h4>
 			</div>
 			
 			<div class="table-responsive">
-				
 				<table class="table table-striped table-sm">
 					<thead>
 						<tr>
 							<th>Nom</th>
 							<th>Prénom</th>
-							<th colspan="4">Adresse</th>
-							<th>n° agrement</th>
-							<th colspan="3">taux de remb</th>
+							<th colspan="3">Spécialité</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -39,16 +36,34 @@
 						<tr th:each="medecin: ${medecin}">
 							<td><span th:text="${medecin.personne.nom_Personne}"></span></td>
 							<td><span th:text="${medecin.personne.prenom_Personne}"></span></td>
-							<td><span th:text="${medecin.personne.adresse.num_Adresse}"></span></td>
-							<td><span th:text="${medecin.personne.adresse.nom_Rue_Adresse}"></span></td>
-							<td><span th:text="${medecin.personne.adresse.code_Postal_Adresse}"></span></td>
-							<td><span th:text="${medecin.personne.adresse.ville_Adresse}"></span></td>
-							<td><span th:text="${medecin.num_Agrement}"></span></td>
 							<td><span th:text="${medecin.spe_Medecin}"></span></td>
-							<td>
-								<a th:href="@{/updateMedecin/{id}(id=${medecin.id_Medecin})}"><button class="btn btn-info">Modifier</button></a>
-								<a th:href="@{/deleteMedecin/{id}(id=${medecin.id_Medecin})}"><button class="btn btn-danger">Supprimer</button></a>						
+							<td>								
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${medecin.id_Medecin}" >&#x270f</button>
 							</td>
+							<div class="modal" th:attr="id='modalWindow'+ ${medecin.id_Medecin}" aria-labelledby="modal essai" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Information medecin</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+										</div>
+										<div class="modal-body">
+											<p>Nom : <span th:text="${medecin.personne.nom_Personne}"></span></p>
+											<p>Prenom : <span th:text="${medecin.personne.prenom_Personne}"></span></p>
+											<p>Spécialité : <span th:text="${medecin.spe_Medecin}"></span></p>
+											<p>Numero d'agrément : <span th:text="${medecin.num_Agrement}"></span></p>
+											<p>Adresse : <span th:text="${medecin.personne.adresse.num_Adresse}"></span>
+											<span th:text="${medecin.personne.adresse.nom_Rue_Adresse}"></span>
+											<span th:text="${medecin.personne.adresse.code_Postal_Adresse}"></span>
+											<span th:text="${medecin.personne.adresse.ville_Adresse}"></span></p>
+										</div>
+										<div class="modal-footer">
+											<a th:href="@{/updateMedecin/{id}(id=${medecin.id_Medecin})}"><button class="btn btn-info">Modifier</button></a>
+											<a th:href="@{/deleteMedecin/{id}(id=${medecin.id_Medecin})}"><button class="btn btn-danger">Supprimer</button></a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</tr>
 					</tbody>
 				</table>

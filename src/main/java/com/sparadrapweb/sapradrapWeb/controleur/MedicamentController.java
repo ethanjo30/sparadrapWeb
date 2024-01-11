@@ -47,7 +47,7 @@ public class MedicamentController {
 	@GetMapping("/deleteMedicament/{id}")
 	public ModelAndView deleteMedicament(@PathVariable("id") final Integer id) {
 		service.deleteById(id);
-		return new ModelAndView("redirect:/");		
+		return new ModelAndView("redirect:/Medicament");		
 	}
 	
 	@PostMapping("/savedMedicament/{id}")

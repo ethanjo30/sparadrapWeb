@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+		rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/pageEntete.css">
+	<link rel="stylesheet" href="/css/body.css">
+
+<title>ajout d'un medecin</title>
+</head>
+<body>
+	<header th:replace="~{/Page/entete::Entete}"></header>
+	<main>
+		<div class="container special">
+			<h2 class="titreNouveaux"><strong>Ajout d'un nouveaux medecin</strong></h2>
+			<div>
+				<form method="post" th:action="@{/saveMedecin}" th:object="${medecin}">
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="nom_Personne"><strong>Nom</strong></label> 
+							<input type="text" th:field="${medecin.personne.nom_Personne}" class="form-control" 
+								id="nom_Personne"placeholder="Saisir le nom">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="prenom_Personne"><strong>Prenom</strong></label> 
+							<input type="text" th:field="${medecin.personne.prenom_Personne}" class="form-control" 
+								id="prenom_Personne"placeholder="Saisir le prenom">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="spe_Medecin"><strong>spécialité</strong></label> 
+							<input type="text" th:field="${medecin.spe_Medecin}" class="form-control" 
+								id="spe_Medecin" placeholder="Saisir la spécialité">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="num_Agrement"><strong>Numero agrement</strong></label> 
+							<input type="text" th:field="${medecin.num_Agrement}" class="form-control" 
+								id="num_Agrement" placeholder="Saisir le numero d'agrément">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="num_Adresse"><strong>N° de la rue</strong></label> 
+							<input type="number" th:field="${medecin.personne.adresse.num_Adresse}" class="form-control" 
+								id="num_Adresse"placeholder="Saisir le numero de la rue">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="rue_Adresse"><strong>Nom de la rue</strong></label> 
+							<input type="text" th:field="${medecin.personne.adresse.nom_Rue_Adresse}" class="form-control" 
+								id="rue_Adresse" placeholder="Saisir le nom de la rue">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="code_Postal_Adresse"><strong>Code postal</strong></label> 
+							<input type="text" th:field="${medecin.personne.adresse.code_Postal_Adresse}" class="form-control" 
+								id="code_Postal_Adresse" placeholder="Saisir le code postal">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="ville_Adresse"><strong>Ville</strong></label> 
+							<input type="text" th:field="${medecin.personne.adresse.ville_Adresse}" class="form-control" 
+								id="ville_Adresse" placeholder="Saisir la ville">
+                        </div>
+                    </section>
+					<div>
+						<button type="submit" class="btn btn-primary">Crée</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"></script>
+</body>
+</html>

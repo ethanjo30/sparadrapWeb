@@ -9,6 +9,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="/css/pageEntete.css">
 	<link rel="stylesheet" href="/css/body.css">
+	
 <title>Liste des patients</title>
 
 </head>
@@ -27,10 +28,7 @@
 						<tr>
 							<th>nom</th>
 							<th>prenom</th>
-							<th>DateNaisPat</th>
-							<th>N° Securite social</th>
-							<th>telephone</th>
-							<th colspan="3">email</th>
+							<th colspan="3">DateNaisPat</th>
 						</tr>	
 					</thead>
 					<tbody>
@@ -41,20 +39,45 @@
 								<td><span th:text="${patient.personne.nom_Personne}"></span></td>
 								<td><span th:text="${patient.personne.prenom_Personne}"></span></td>
 								<td><span th:text="${#dates.format(patient.date_Nais_Pat, 'dd/MM/yyyy')}"></span></td>
-								<td><span th:text="${patient.num_Secu_Pat}"></span></td>
-								<td><span th:text="${patient.personne.tel_Personne}"></span></td>
-								<td><span th:text="${patient.personne.email_Personne}"></span></td>
-							<td>
-								<a th:href="@{/infoPatient/{id}(id=${patient.idpat})}"><button class="btn btn-success">information</button></a>
-								<a th:href="@{/updatePatient/{id}(id=${patient.idpat})}"><button class="btn btn-info">Modifier</button></a>
-								<a th:href="@{/deletePatient/{id}(id=${patient.idpat})}"><button class="btn btn-danger">Supprimer</button></a>
+							<td>								
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${patient.idpat}" >&#x270f</button>
 							</td>
-						</tr>
+						
+						<div class="modal" th:attr="id='modalWindow'+ ${patient.idpat}" aria-labelledby="modal essai" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Information patient</h4>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+											
+									</div>
+									<div class="modal-body">
+										<p>Nom : <span th:text="${patient.personne.nom_Personne}"></span></p>
+										<p>Prenom : <span th:text="${patient.personne.prenom_Personne}"></span></p>
+										<p>Date de naissance : <span th:text="${#dates.format(patient.date_Nais_Pat, 'dd/MM/yyyy')}"></span></p>
+										<p>N° securité social : <span th:text="${patient.num_Secu_Pat}"></span></p>
+										<p>Téléphone : <span th:text="${patient.personne.tel_Personne}"></span></p>
+										<p>Email : <span th:text="${patient.personne.email_Personne}"></span></p>
+										<p>Mutuelle : <span th:text="${patient.mutuelle.nom_Mut}"></span></p>
+										<p>Adresse : <span th:text="${patient.personne.adresse.num_Adresse}"></span>
+										<span th:text="${patient.personne.adresse.nom_Rue_Adresse}"></span>
+										<span th:text="${patient.personne.adresse.code_Postal_Adresse}"></span>
+										<span th:text="${patient.personne.adresse.ville_Adresse}"></span></p>
+									</div>
+									<div class="modal-footer">
+										<a th:href="@{/updatePatient/{id}(id=${patient?.idpat})}"><button class="btn btn-info">Modifier</button></a>
+										<a th:href="@{/deletePatient/{id}(id=${patient?.idpat})}"><button class="btn btn-danger">Supprimer</button></a>
+									</div>
+								</div>
+							</div> 
+						</div>
+					</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</main>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>

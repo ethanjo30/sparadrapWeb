@@ -11,13 +11,12 @@
 	<link rel="stylesheet" href="/css/body.css">
 
 <title>ajout d'un patient</title>
-
 </head>
 <body>
 	<header th:replace="~{/Page/entete::Entete}"></header>
 	<main>
 		<div class="container special">
-			<h2 class="h2"><strong>Ajout d'un nouveaux patient</strong></h2>
+			<h2 class="titreNouveaux"><strong>Ajout d'un nouveaux patient</strong></h2>
 			<div>
 				<form method="post" th:action="@{/savePatient}" th:object="${patient}">
 					<section class="form">
@@ -91,7 +90,7 @@
 						</div>
 					</section>
 					<div>
-						<button type="submit" class="btn btn-outline-success">Crée</button>
+						<button type="submit" class="btn btn-primary">Crée</button>
 					</div>
 				</form>
 			</div>

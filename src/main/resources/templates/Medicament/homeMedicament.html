@@ -18,19 +18,16 @@
 		<div class="container special">
 			<div>
 				<h2 class="h2"><strong>Liste des medicament</strong></h2>
-				<h4 class="Ajouter"><a th:href="@{/createPatient}">Ajouter un nouveau medicament</a></h4>
+				<h4 class="Ajouter"><a th:href="@{/createMedicament}">Ajouter un nouveau medicament</a></h4>
 			</div>
 			
 			<div class="table-responsive">
-				
 				<table class="table table-striped table-sm">
 					<thead>
 						<tr>
 							<th>Nom</th>
 							<th>categorie</th>
-							<th>prix</th>
-							<th>date de service</th>
-							<th colspan="3">quantite</th>
+							<th colspan="2">prix</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -41,12 +38,30 @@
 							<td><span th:text="${medicament.nom_Med}"> Nom </span></td>
 							<td><span th:text="${medicament.cate_Med}"> Prénom </span></td>
 							<td><span th:text="${medicament.prix_Med}"> Adresse </span></td>
-							<td><span th:text="${medicament.date_Service_Med}"> Telephone </span></td>
-							<td><span th:text="${medicament.quantite_Med}"> Email </span></td>
 							<td>
-								<a th:href="@{/updateMedicament/{id}(id=${medicament.id_Med})}"><button class="btn btn-info">Modifier</button></a>
-								<a th:href="@{/deleteMedicament/{id}(id=${medicament.id_Med})}"><button class="btn btn-danger">Supprimer</button></a>						
+								<button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${medicament.id_Med}" >&#x270f</button>
 							</td>
+							<div class="modal" th:attr="id='modalWindow'+ ${medicament.id_Med}" aria-labelledby="modal essai" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Information patient</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+										</div>
+										<div class="modal-body">
+											<p>Nom : <span th:text="${medicament.nom_Med}"></span></p>
+											<p>Categorie : <span th:text="${medicament.cate_Med}"></span></p>
+											<p>Prix med : <span th:text="${medicament.prix_Med}"></span></p>
+											<p>Date de mise en service : <span th:text="${medicament.date_Service_Med}"></span></p>
+											<p>Quabtité en stock : <span th:text="${medicament.quantite_Med}"></span></p>
+										</div>
+										<div class="modal-footer">
+											<a th:href="@{/updateMedicament/{id}(id=${medicament.id_Med})}"><button class="btn btn-info">Modifier</button></a>
+											<a th:href="@{/deleteMedicament/{id}(id=${medicament.id_Med})}"><button class="btn btn-danger">Supprimer</button></a>
+										</div>
+									</div>
+								</div>
+							</div>
 						</tr>
 					</tbody>
 				</table>

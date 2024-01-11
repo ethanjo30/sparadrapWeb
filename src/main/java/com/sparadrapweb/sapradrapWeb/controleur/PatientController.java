@@ -43,8 +43,6 @@ public class PatientController {
 		return "Patient/homePatient";
 	}
 	
-	// faire un finall avec les mutuelle pour quelle les mutuelle 
-	//soit proposer dans la combobox sans que nous on la modifie
 	@GetMapping("/createPatient")
 	public String createPatient(Model model) {
 		Patient e = new Patient();
@@ -58,7 +56,7 @@ public class PatientController {
 	public String updatePatient(@PathVariable("id") final Integer id, Model model) {
 		Optional<Patient> e = service.findById(id);		
 		e.ifPresent(value ->model.addAttribute("patient", value));	
-		return "Patient/formUpdatePatient";		
+		return "Patient/homePatient";		
 	}
 	
 	@GetMapping("/deletePatient/{id}")
@@ -72,7 +70,6 @@ public class PatientController {
 	public String savedPatient(Patient patient, BindingResult resultat) {
 
 		if(resultat.hasErrors()) {
-			System.out.println(resultat);
 			return "Patient/formUpdatePatient";
 		}
 
