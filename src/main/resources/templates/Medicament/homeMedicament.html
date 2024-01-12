@@ -51,7 +51,7 @@
 											<p>Categorie : <span th:text="${medicament.cate_Med}"></span></p>
 											<p>Prix med : <span th:text="${medicament.prix_Med}"></span></p>
 											<p>Date de mise en service : <span th:text="${#dates.format(medicament.date_Service_Med, 'dd/MM/yyyy')}"></span></p>
-											<p>Quabtité en stock : <span th:text="${medicament.quantite_Med}"></span></p>
+											<p>Quantité en stock : <span th:text="${medicament.quantite_Med}"></span></p>
 										</div>
 										<div class="modal-footer">
 											<a th:href="@{/updateMedicament/{id}(id=${medicament.id_Med})}"><button class="btn btn-info">Modifier</button></a>
