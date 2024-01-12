@@ -50,13 +50,14 @@ public class MedicamentController {
 		return new ModelAndView("redirect:/Medicament");		
 	}
 	
-	@PostMapping("/savedMedicament/{id}")
-	public String savedMedicament(@PathVariable("id")final Integer id, Medicament medicament, BindingResult resultat, Model model) {
+	@PostMapping("/saveMedicament")
+	public String saveMedicament(Medicament medicament, BindingResult resultat) {
 		if(resultat.hasErrors()) {
 			return "Medicament/formUpdateMedicament";
 		}
 		service.save(medicament);
-		return"redirect:/";
+		System.out.println(medicament);
+		return"redirect:/Medicament";
 	}
 
 }

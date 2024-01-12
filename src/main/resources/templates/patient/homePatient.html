@@ -18,7 +18,7 @@
 	<main>
 		<div class="container special">
 			<div class="H">
-				<h2 class="h2"><strong>Liste des patients</strong></h2>
+				<h2 class="h2Liste"><strong>Liste des patients</strong></h2>
 				<h4 class="Ajouter"><a th:href="@{/createPatient}">Ajouter un nouveau patient</a></h4>
 			</div>
 			
@@ -40,7 +40,7 @@
 								<td><span th:text="${patient.personne.prenom_Personne}"></span></td>
 								<td><span th:text="${#dates.format(patient.date_Nais_Pat, 'dd/MM/yyyy')}"></span></td>
 							<td>								
-								<button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${patient.idpat}" >&#x270f</button>
+								<button type="button" class="btn btn-info" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${patient.idpat}" >&#x270f</button>
 							</td>
 						
 						<div class="modal" th:attr="id='modalWindow'+ ${patient.idpat}" aria-labelledby="modal essai" aria-hidden="true">

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+		rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/pageEntete.css">
+	<link rel="stylesheet" href="/css/body.css">
+
+<title>ajout d'un medicament</title>
+</head>
+<body>
+	<header th:replace="~{/Page/entete::Entete}"></header>
+	<main>
+		<div class="container special">
+			<h2 class="titreNouveaux"><strong>Ajout d'un nouveaux medicament</strong></h2>
+			<div>
+				<form method="post" th:action="@{/saveMedicament}" th:object="${medicament}">
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="nom_Med"><strong>Nom du medicament</strong></label> 
+							<input type="text" th:field="${medicament.nom_Med}" class="form-control" 
+								id="nom_Med"placeholder="Saisir le nom du medicament">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="cate_Med"><strong>Categorie</strong></label> 
+							<input type="text" th:field="${medicament.cate_Med}" class="form-control" 
+								id="cate_Med"placeholder="Saisir la catégorie">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="date_Service_Med"><strong>Date de service</strong></label> 
+							<input type="Date" th:field="${medicament.date_Service_Med}" class="form-control" 
+								id="date_Service_Med" required>
+						</div>
+						<div class="form-group">
+							<label class="titre" for="prix_Med"><strong>NPrix</strong></label> 
+							<input type="text" th:field="${medicament.prix_Med}" class="form-control" 
+								id="prix_Med" placeholder="Saisir le prix">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="quantite_Med"><strong>Quantité</strong></label> 
+							<input type="tel" th:field="${medicament.quantite_Med}" class="form-control" 
+								id="quantite_Med" placeholder="Saisir la quantité (boite)">
+						</div>
+					</section>
+					<div>
+						<button type="submit" class="btn btn-primary">Crée</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"></script>
+</body>
+</html>

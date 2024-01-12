@@ -1,5 +1,7 @@
 package com.sparadrapweb.sapradrapWeb.model;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +28,7 @@ public class Medicament {
 	private int prix_Med;
 	
 	@Column(name="dateservicemed")
-	private int date_Service_Med;
+	private Date date_Service_Med;
 
 	@Column(name="quantitemed")
 	private String quantite_Med;

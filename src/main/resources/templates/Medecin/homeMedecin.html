@@ -16,7 +16,7 @@
 	<main>
 		<div class="container special">
 			<div>
-				<h2 class="h2"><strong>Liste des medecin</strong></h2>
+				<h2 class="h2Liste"><strong>Liste des medecin</strong></h2>
 				<h4 class="Ajouter"><a th:href="@{/createMedecin}">Ajouter un nouveau medecin</a></h4>
 			</div>
 			
@@ -38,7 +38,7 @@
 							<td><span th:text="${medecin.personne.prenom_Personne}"></span></td>
 							<td><span th:text="${medecin.spe_Medecin}"></span></td>
 							<td>								
-								<button type="button" class="btn btn-primary" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${medecin.id_Medecin}" >&#x270f</button>
+								<button type="button" class="btn btn-info" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${medecin.id_Medecin}" >&#x270f</button>
 							</td>
 							<div class="modal" th:attr="id='modalWindow'+ ${medecin.id_Medecin}" aria-labelledby="modal essai" aria-hidden="true">
 								<div class="modal-dialog">
