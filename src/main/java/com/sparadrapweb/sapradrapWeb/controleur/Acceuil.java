@@ -5,10 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class homePharmacienController {
-
-    @GetMapping("/Pharmacien")
+public class Acceuil {
+    @GetMapping("/")
     public String home(Model model) {
-		return "Pharmacien/pageHomePharmacien";
+		return "Page/acceuil";
 	}
 }

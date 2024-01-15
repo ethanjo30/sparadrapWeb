@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+.dropdown {
+  display: inline-block;
+  justify-content: center;
+  margin: 0 0 0 30%;
+}
+.logos {
+  margin: 3px;
+}
+.btn-outline-primary{
+    --bs-btn-color: rgb(9, 83, 11);
+    --bs-btn-border-color: rgb(9, 83, 11);
+    --bs-btn-active-bg: rgb(9, 83, 11);
+    --bs-btn-hover-bg: rgb(9, 83, 11);
+  }
+.main{
+    background-size: cover;
+    background-image: url(/image/fondAcceuil.jpg);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.box-container{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+}
+.btn-info{
+    margin-left: 40%;
+    margin-top: 1%;
+}
+#btn-ville{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    margin-left: 30%;
+}
+.col-sm-6{
+    margin-left: 33%;
+    margin-top: 1%;
+}
+a{
+  text-decoration: none;
+}
+.btn:hover{
+    background-color: rgb(9, 83, 11);
+}
+#city {
+    background-color: rgb(117, 169, 199);
+}
+#temps{
+    background-color: rgb(35, 156, 226);
+}
+#humidity{
+    background-color: rgb(65, 94, 111);
+}
+#wind{
+    background-color: rgb(13, 60, 87);
+}
