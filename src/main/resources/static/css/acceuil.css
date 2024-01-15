@@ -121,7 +121,8 @@ body {
 }
 a{
   text-decoration: none;
+  color: rgb(9, 83, 11);
 }
 a:hover{
-    --bs-link-color-rgb: white;
+    color: white;
 }

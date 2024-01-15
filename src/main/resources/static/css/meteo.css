@@ -57,8 +57,12 @@
     margin-top: 1%;
 }
 a{
-  text-decoration: none;
-}
+    text-decoration: none;
+    color: rgb(9, 83, 11);
+  }
+  a:hover{
+      color: white;
+  }
 .btn:hover{
     background-color: rgb(9, 83, 11);
 }
