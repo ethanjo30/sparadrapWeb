@@ -25,6 +25,10 @@
     background-image: url(/image/fondAcceuil.jpg);
     background-repeat: no-repeat;
     min-height: 100vh;
+    padding-top: 5%;
+}
+.container {
+    margin-top: 2%px;
 }
 .box-container{
     width: 300px;
@@ -47,22 +51,20 @@
     margin-top: 1%;
 }
 #btn-ville{
-    display: flex;
-    justify-content: center;
     width: 30%;
     margin-left: 30%;
 }
 .col-sm-6{
     margin-left: 33%;
-    margin-top: 1%;
+    margin-top: 3%;
 }
 a{
     text-decoration: none;
     color: rgb(9, 83, 11);
-  }
-  a:hover{
-      color: white;
-  }
+}
+a:hover{
+    color: white;
+}
 .btn:hover{
     background-color: rgb(9, 83, 11);
 }
