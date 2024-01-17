@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/pageEntete.css">
+	<link rel="stylesheet" href="/css/body.css">
+	
+<title>Liste des employe</title>
+
+</head>
+<body >
+	<header th:replace="~{/Page/entete::Entete}"></header>
+	<main>
+		<div class="container special">
+			<div class="H">
+				<h2 class="h2Liste"><strong>Liste des employes</strong></h2>
+				<h4 class="Ajouter"><a th:href="@{/createEmploye}">Ajouter un nouveau employe</a></h4>
+			</div>
+			
+			<div class="table-responsive">		
+				<table class="table table-striped table-sm">
+					<thead>
+						<tr>
+							<th>nom</th>
+							<th>prenom</th>
+							<th colspan="3">DateNaisPat</th>
+						</tr>	
+					</thead>
+					<tbody>
+						<tr th:if="${employe.empty}">
+							<td colspan="5">Aucun employe en base de données</td>
+						</tr>
+						<tr th:each="employe: ${employe}">
+								<td><span th:text="${employe.personne.nom_Personne}"></span></td>
+								<td><span th:text="${employe.personne.prenom_Personne}"></span></td>
+								<td><span th:text="${#dates.format(employe.datenais, 'dd/MM/yyyy')}"></span></td>
+							<td>								
+								<button type="button" class="btn btn-info" data-bs-toggle="modal" th:attr="data-bs-target='#modalWindow' + ${employe.idemploye}" >&#x270f</button>
+							</td>
+						
+						<div class="modal" th:attr="id='modalWindow'+ ${employe.idemploye}" aria-labelledby="modal essai" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Information employe</h4>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+											
+									</div>
+									<div class="modal-body">
+										<p>Nom : <span th:text="${employe.personne.nom_Personne}"></span></p>
+										<p>Prenom : <span th:text="${employe.personne.prenom_Personne}"></span></p>
+										<p>Date de naissance : <span th:text="${#dates.format(employe.datenais, 'dd/MM/yyyy')}"></span></p>
+										<p>Téléphone : <span th:text="${employe.personne.tel_Personne}"></span></p>
+										<p>Email : <span th:text="${employe.personne.email_Personne}"></span></p>
+										<p>Adresse : <span th:text="${employe.personne.adresse.num_Adresse}"></span>
+										<span th:text="${employe.personne.adresse.nom_Rue_Adresse}"></span>
+										<span th:text="${employe.personne.adresse.code_Postal_Adresse}"></span>
+										<span th:text="${employe.personne.adresse.ville_Adresse}"></span></p>
+									</div>
+									<div class="modal-footer">
+										<a th:href="@{/updateEmploye/{id}(id=${employe?.idemploye})}"><button class="btn btn-info">Modifier</button></a>
+										<a th:href="@{/deleteEmploye/{id}(id=${employe?.idemploye})}"><button class="btn btn-danger">Supprimer</button></a>
+									</div>
+								</div>
+							</div> 
+						</div>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"></script>
+</body>
+</html>

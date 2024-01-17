@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 @Entity
 public class Mutuelle {
-    
+
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idmut")

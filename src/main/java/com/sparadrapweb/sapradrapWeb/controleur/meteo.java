@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class meteo {
+public class Meteo {
      @GetMapping("/Meteo")
     public String home(Model model) {
 		return "Page/meteo";

@@ -25,7 +25,7 @@ public class Patient {
 	
 	@ManyToOne
 	@JoinColumn(name="idmut")
-	private Mutuelle mutuelle;
+	public Mutuelle mutuelle;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="datenaispat")

@@ -1,22 +1,103 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhml"
 	xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-		rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
-		crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/pageEntete.css">
-	<link rel="stylesheet" href="/css/body.css">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+			rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+			crossorigin="anonymous">
+		<link rel="stylesheet" href="/css/pageEntete.css">
+		<link rel="stylesheet" href="/css/body.css">
 
-<title>Modificattion d'un patient</title>
+<title>Modification d'un Patient</title>
+
 </head>
 <body>
 	<header th:replace="~{/Page/entete::Entete}"></header>
 	<main>
-		
+		<div class="container special">
+			<h2 class="h2">Modification d'un Patient</h2>
+			<div>
+				<form method="post" th:action="@{/savePatient}" th:object="${patient}">
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="nom_Personne"><strong>Nom</strong></label> 
+							<input type="text" th:field="${patient.personne.nom_Personne}" class="form-control" 
+								id="nom_Personne"placeholder="Saisir le nom">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="prenom_Personne"><strong>Prenom</strong></label> 
+							<input type="text" th:field="${patient.personne.prenom_Personne}" class="form-control" 
+								id="prenom_Personne"placeholder="Saisir le prenom">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="date_Nais_Pat"><strong>Date de naissance</strong></label> 
+							<input type="date" th:field="${patient.date_Nais_Pat}" class="form-control" 
+								id="date_Nais_Pat">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="num_Secu_Pat"><strong>Numero de securite social</strong></label> 
+							<input type="text" th:field="${patient.num_Secu_Pat}" class="form-control" 
+								id="num_Secu_Pat" placeholder="Saisir le numero de securite social">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="tel_Personne"><strong>Telephone</strong></label> 
+							<input type="tel" th:field="${patient.personne.tel_Personne}" class="form-control" 
+								id="tel_Personne" placeholder="Saisir le telephone">
+						</div>
+						<div class="form-group">
+								<label class="titre" for="email_Personne"><strong>Email</strong></label> 
+								<input type="text" th:field="${patient.personne.email_Personne}" class="form-control" 
+									id="email_Personne" placeholder="Saisir l'email">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="nom_Mut"><strong>Mutuelle</strong></label> 
+							<select  type="text" th:field="*{mutuelle}" class="form-control" id="cli_mutuelleInput"
+                           aria-describedby="cli_mutuelleHelp" placeholder="cli_mutuelle" >
+                        <option value="">Choisir une Mutuelle</option>
+                        <option th:each="mutuelle : ${mutuelles}" th:value="${mutuelle.getId_mut()}" th:text="${mutuelle.getNom_Mut()}"></option>
+                    </select> 
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="num_Adresse"><strong>N° de la rue</strong></label> 
+							<input type="number" th:field="${patient.personne.adresse.num_Adresse}" class="form-control" 
+								id="num_Adresse"placeholder="Saisir le numero de la rue">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="rue_Adresse"><strong>Nom de la rue</strong></label> 
+							<input type="text" th:field="${patient.personne.adresse.nom_Rue_Adresse}" class="form-control" 
+								id="rue_Adresse" placeholder="Saisir le nom de la rue">
+						</div>
+					</section>
+					<section class="form">
+						<div class="espaceForm">
+							<label class="titre" for="code_Postal_Adresse"><strong>Code postal</strong></label> 
+							<input type="text" th:field="${patient.personne.adresse.code_Postal_Adresse}" class="form-control" 
+								id="code_Postal_Adresse" placeholder="Saisir le code postal">
+						</div>
+						<div class="form-group">
+							<label class="titre" for="ville_Adresse"><strong>Ville</strong></label> 
+							<input type="text" th:field="${patient.personne.adresse.ville_Adresse}" class="form-control" 
+								id="ville_Adresse" placeholder="Saisir la ville">
+						</div>
+					</section>
+					<div>
+						<button type="submit" class="btn btn-primary">Modifier</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</main>
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
         crossorigin="anonymous"></script>
