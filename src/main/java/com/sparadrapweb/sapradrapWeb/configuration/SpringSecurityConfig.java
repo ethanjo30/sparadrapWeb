@@ -37,5 +37,5 @@ public class SpringSecurityConfig {
 	    AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
         authenticationManagerBuilder.userDetailsService(customService).passwordEncoder(bCryptPasswordEncoder);
 	    return authenticationManagerBuilder.build();
-}
+    }
 }

@@ -41,6 +41,7 @@ public class PatientController {
 	public String home(Model model) {
 			Iterable<Patient> listPatient = patientRepo.findAll();
 			model.addAttribute("patients", listPatient);
+			
 		return "Patient/homePatient";
 	}
 	
@@ -76,6 +77,9 @@ public class PatientController {
 		if(resultat.hasErrors()) {
 			return "Patient/formUpdatePatient";
 		}
+
+		Optional<Mutuelle> mut = mutuelleREPO.findById(patient.getMutuelle().getId_mut());
+		patient.setMutuelle(mut.orElse(null));
 
 		adresseREPO.save(patient.personne.adresse);
 		personneREPO.save(patient.personne);
