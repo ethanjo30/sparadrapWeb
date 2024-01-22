@@ -2,7 +2,6 @@ package com.sparadrapweb.sapradrapWeb.model;
 
 import java.math.BigInteger;
 import java.sql.Date;
-import java.util.Optional;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -20,10 +20,10 @@ public class OrdonanceController {
 	@GetMapping("/Ordonance")
 	public String home(Model model) {
 		Iterable<Ordonance> listOrdonance = ordonancerepo.findAll();
-		model.addAttribute("Ordonances", listOrdonance);
+		model.addAttribute("ordonances", listOrdonance);
 		
 	return "Achat/homeAvecOrdonance";
-}
+	}
 
 	
 }
