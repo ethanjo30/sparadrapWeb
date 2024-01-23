@@ -23,6 +23,6 @@ public class Contient {
     public Ordonance ordonance;
 
     @ManyToOne
-    @JoinColumn(name="idMed")
+    @JoinColumn(name="idmed")
     public Medicament medicament;
 }

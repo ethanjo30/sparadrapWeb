@@ -17,7 +17,7 @@ public class Ordonance {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idordo;
+	public int idordo;
 
     @Column(name="dateordo")
     private Date date_Ordo;

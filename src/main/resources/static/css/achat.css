@@ -1,6 +1,10 @@
-.main {
-margin-left: 47%;
-}
 .form-control {
     width: 15%;
+    margin-left: 43%;
+}
+.form-label{
+    margin-left: 47%;
+}
+.h2Liste{
+    margin: 1% 30%;
 }
