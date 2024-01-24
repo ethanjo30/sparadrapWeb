@@ -62,7 +62,7 @@
                            aria-describedby="cli_mutuelleHelp" placeholder="cli_mutuelle" >
                         <option value="">Choisir une Mutuelle</option>
                         <option th:each="mutuelle : ${mutuelles}" th:value="${mutuelle.getId_mut()}" th:text="${mutuelle.getNom_Mut()}"></option>
-                    </select> 
+                    </select>
 						</div>
 					</section>
 					<section class="form">
