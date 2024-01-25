@@ -43,6 +43,10 @@ public class OrdonanceController {
 
 	@GetMapping("/SansOrdonance")
 	public String homes(Model model) {
+		Iterable<Ordonance> listOrdonance = ordonancerepo.findAll();
+		model.addAttribute("ordonances", listOrdonance);
+		Iterable<Contient> listContient = contientRepo.findAll();
+	    model.addAttribute("contients", listContient);
 		Iterable<Medicament> listMedicament = medicamentRepo.findAll();
 	    model.addAttribute("medicaments", listMedicament);
 		Iterable<Patient> listPatient = patientRepo.findAll();
