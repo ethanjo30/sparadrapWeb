@@ -4,19 +4,32 @@ let medicament = document.getElementById("medicament")
 
 let listmedicament = document.querySelectorAll(".listmedicament")
 
-let table = document.querySelector("#tableAchat tbody")
+let data = document.querySelectorAll("#datalistMedicament option")
+console.log(data)
 
-if (medicament != null){
-   /* ajouter du nom du medicament selectionner 
+medicament.addEventListener("change", () => {
+    if(medicament.value !== "") {
+        let categorie
+        let prix
+        let nom = medicament.value
 
-    medicament.addEventListener("input", () => {
-
-        if(medicament.value !== "") {
-
-            let nouvelleLigne = table.insertRow();
-            let cellnom = nouvelleLigne.insertCell(0);
-
-            cellnom.textContent = medicament.value;
+        for (const row of data){
+            if (medicament.value===row.innerText){
+                console.log("ok")
+                categorie = row.getAttribute("cate_Med");
+                prix = row.getAttribute("prix_Med");
+            }
         }
-    });*/
-}
+        
+        let newRow = document.createElement("tr");
+
+        newRow.innerHTML = `
+            <td class="nomMed">${nom}</td>
+            <td class="catMed">${categorie}</td>
+            <td class="prixMed">${prix} €</td>`;
+
+            listmedicament.forEach(element => {
+                element.appendChild(newRow.cloneNode(true));
+            });
+    }
+}); 
