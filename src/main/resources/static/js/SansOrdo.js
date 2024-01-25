@@ -5,7 +5,6 @@ let medicament = document.getElementById("medicament")
 let listmedicament = document.querySelectorAll(".listmedicament")
 
 let data = document.querySelectorAll("#datalistMedicament option")
-console.log(data)
 
 medicament.addEventListener("change", () => {
     if(medicament.value !== "") {
@@ -15,7 +14,6 @@ medicament.addEventListener("change", () => {
 
         for (const row of data){
             if (medicament.value===row.innerText){
-                console.log("ok")
                 categorie = row.getAttribute("cate_Med");
                 prix = row.getAttribute("prix_Med");
             }
@@ -26,10 +24,15 @@ medicament.addEventListener("change", () => {
         newRow.innerHTML = `
             <td class="nomMed">${nom}</td>
             <td class="catMed">${categorie}</td>
-            <td class="prixMed">${prix} €</td>`;
+            <td class="prixMed">${prix} €</td>
+            <td class="quantite"><input class="form-control quantite" value="1"></td>
+            <td class="total"></td>`;
 
             listmedicament.forEach(element => {
                 element.appendChild(newRow.cloneNode(true));
             });
+        
+        let prixMedicament = document.querySelector(".prixMed")
+        console.log(prixMedicament.value)
     }
 }); 

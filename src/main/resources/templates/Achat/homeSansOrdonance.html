@@ -35,25 +35,26 @@
                 <div class="H">
                     <h2 class="h2ordo"><strong>Liste des Ordonance du patient</strong></h2>
                 </div>
-                
-                <div class="table-responsive">		
-                    <table class="table table-striped table-sm" id="tableAchat">
-                        <thead>
-                            <tr>
-                                <th>nom medicament</th>
-                                <th>categorie</th>
-                                <th>prix</th>
-                                <th>Quantite</th>
-                                <th>total €</th>
-                            </tr>	
-                        </thead>
-                        <tbody class="listmedicament">
-                            <tr th:if="${ordonances.empty}">
-                                <td colspan="5">Aucune donee à afficher</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <section class="tabSansOrdo">
+                    <div class="table-responsive">		
+                        <table class="table table-striped table-sm" id="tableAchat">
+                            <thead>
+                                <tr>
+                                    <th>nom medicament</th>
+                                    <th>categorie</th>
+                                    <th>prix</th>
+                                    <th>Quantite</th>
+                                    <th>total €</th>
+                                </tr>	
+                            </thead>
+                            <tbody class="listmedicament">
+                                <tr th:if="${ordonances.empty}">
+                                    <td colspan="5">Aucune donee à afficher</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </div>
         </main>
     </section>
