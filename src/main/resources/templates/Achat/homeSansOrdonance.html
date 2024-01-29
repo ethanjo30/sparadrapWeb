@@ -52,6 +52,17 @@
                                     <td colspan="5">Aucune donee à afficher</td>
                                 </tr>
                             </tbody>
+                            <tfoot class="footer">
+                                <tr>
+                                    <td class="vide" colspan="3"></td>
+                                    <td>à payer</td>
+                                    <td class="sommeTotal"><input></td>
+                                </tr>
+                                <tr>
+                                    <td class="vide" colspan="4"></td>
+                                    <td><a th:href="@{/updatePatient/{id}(id=${patient?.idpat})}"><button class="btn btn-info">Valider</button></a></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </section>

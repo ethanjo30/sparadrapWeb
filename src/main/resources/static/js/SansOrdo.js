@@ -6,44 +6,58 @@ let listmedicament = document.querySelectorAll(".listmedicament")
 
 let data = document.querySelectorAll("#datalistMedicament option")
 
-medicament.addEventListener("change", () => {
-    if(medicament.value !== "") {
-        let categorie
-        let prix
-        let nom = medicament.value
+let newRow = document.createElement("tr");
 
-        for (const row of data){
-            if (medicament.value===row.innerText){
+medicament.addEventListener("change", () => {
+    if (medicament.value !== "") {
+        let categorie;
+        let prix;
+        let nom = medicament.value;
+    
+        for (const row of data) {
+            if (medicament.value === row.innerText) {
                 categorie = row.getAttribute("cate_Med");
                 prix = parseFloat(row.getAttribute("prix_Med"));
             }
         }
-        
-        let newRow = document.createElement("tr");
-
+    
         newRow.innerHTML = `
             <td class="nomMed">${nom}</td>
             <td class="catMed">${categorie}</td>
             <td class="prixMed">${prix} €</td>
             <td class="quantite"><input value="1"></td>
             <td class="total">${prix} €</td>`;
+    
+        listmedicament.forEach(element => {
+            element.appendChild(newRow.cloneNode(true));
+        });
+    
+        // Fonction pour mettre à jour le total de la colonne
+        function TotalColonneTotal() {
+            let colQuantite = document.querySelectorAll(".quantite input");
+            let colTotal = document.querySelectorAll(".total");
+            let totalGlobal = 0;
+    
+            for (let i = 0; i < colQuantite.length; i++) {
+                let totalLigne = prix * parseFloat(colQuantite[i].value);
+                colTotal[i].textContent = totalLigne.toFixed(2) + " €";
+                totalGlobal += totalLigne;
+            }
+    
+            let sommeTotal = document.querySelector(".sommeTotal");
+            sommeTotal.textContent = totalGlobal.toFixed(2) + " €";
+        }
+    
+        // Appeler la fonction pour mettre à jour le total de la colonne
+        TotalColonneTotal();
+    
+        // Ajouter un écouteur d'événements pour chaque champ de quantité
+        let colQuantite = document.querySelectorAll(".quantite input");
+        for (let i = 0; i < colQuantite.length; i++) {
+            colQuantite[i].addEventListener("change", TotalColonneTotal);
+        }
 
-            listmedicament.forEach(element => {
-                element.appendChild(newRow.cloneNode(true));
-            });
-
-            let colQuantite = newRow.querySelector(".quantite input");
-            let colTotal = newRow.querySelector(".total");
-
-            console.log(colQuantite.value)
-            console.log(colTotal.textContent)
-            console.log(prix)
-
-            colQuantite.addEventListener("change", () => {
-                let totalLigne = prix * colQuantite.value;
-                colTotal.textContent = totalLigne.toFixed(2) + " €";
-                console.log()
-            });
-
+        // Vider le champ de médicament une fois que l'utilisateur a choisi un médicament
+        medicament.value = "";
     }
 }); 

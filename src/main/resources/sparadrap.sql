@@ -43,18 +43,18 @@ idPersonne int,
 numAgrement bigint(11),
 speMedecin varchar(20),
 primary key(idMedecin),
-constraint fk_Medecin_Personne foreign key (idPersonne) references personne(idpersonne) ON DELETE restrict
+constraint fk_Medecin_Personne foreign key (idPersonne) references personne(idpersonne) ON DELETE CASCADE
 );
 
 create table if not exists Patient
 (
-idPat int auto_increment,
+idPat int not null auto_increment,
 idPersonne int,
 idMut int,
 dateNaisPat date,
-numSecuPat bigint(15),
+numSecuPat bigint(15) not null unique,
 primary key(idPat),
-constraint fk_Patient_Personne foreign key (idPersonne) references personne(idpersonne) ON DELETE CASCADE,
+constraint fk_Patient_Personne foreign key (idPersonne) references personne(idPersonne) ON DELETE CASCADE,
 constraint fk_Patient_Mutuelle foreign key (idMut) references Mutuelle(idMut) ON DELETE restrict
 );
 
@@ -105,59 +105,81 @@ idHisto int auto_increment,
 datHisto datetime not null,
 nomMed varchar (50),
 patient varchar (50),
-primary key(idHisto)
-);
-
-create table if not exists contient
-(
-idOrdo int,
-idMed int,
-primary key(idOrdo,idMed),
-constraint fk_appartient_ordoannce foreign key (idOrdo) references Ordonance(idOrdo) ON DELETE cascade,
-constraint fk_appartient_med foreign key (idMed) references Medicament(idMed) ON DELETE cascade
+idAchat int,
+primary key(idHisto),
+constraint fk_Historique_achat foreign key (idAchat) references achat(idachat) ON DELETE cascade
 );
 
 create table if not exists panier
 (
+idPanier int auto_increment,
 idmed int,
 idachat int,
-primary key(idmed,idachat),
+primary key(idPanier),
 constraint fk_panier_medicament foreign key (idmed) references medicament(idmed) ON DELETE cascade,
 constraint fk_panier_achat foreign key (idachat) references achat(idachat) ON DELETE cascade
 );
 
+create table if not exists contient
+(
+idContient int auto_increment,
+idOrdo int,
+idMed int,
+primary key(idContient),
+constraint fk_appartient_ordoannce foreign key (idOrdo) references Ordonance(idOrdo) ON DELETE cascade,
+constraint fk_appartient_med foreign key (idMed) references Medicament(idMed) ON DELETE cascade
+);
+
+create table if not exists login
+(
+idLogin int auto_increment,
+nomLogin varchar (50),
+MDPLogin varchar (250),
+roleLogin varchar (50),
+primary key(idLogin)
+);
+
+create table if not exists employe
+(
+idEmploye int auto_increment,
+idPersonne int,
+dateNais date,
+primary key(idEmploye),
+constraint fk_employe_Personne foreign key (idPersonne) references personne(idPersonne) ON DELETE cascade
+);
+
 insert into Adresse (numAdresse, nomRueAdresse, codePostalAdresse, villeAdresse)
-	values (123,"rue de la Fictivite",75000,"Paris"),(456," avenue de la Fiction",75000,"Paris"),(10,"chemin des clous",75000,"Paris"),(12,"rue de la liberte",75000,"Paris"),
-			(32,"boulevard mozard",75000,"Paris"),(11,"place de la nation",75011,"Paris"),(10,"rue anatole de la forge",75017,"Paris"),(21,"rue faidherbe",55011,"Paris"),
-			(133,"avenue de suffren",75007,"Paris"),(59,"rue geoffroy-saint-hilaire",75005,"Paris"),(1953,"charle le roi",67000,"strasbourg"),(20,"footix",75000,"paris"),
-			(975,"baudelaire",76600,"havre"),(57,"place michelin",59000,"lille");
+	values (123,"RUE DE LA FICTIVITE",75000,"PARIS"),(456,"AVENU DE LA FICTION",75000,"PARIS"),(10,"CHEMIN DES CLOUS",75000,"PARIS"),(12,"RUE DE LA LIBERTE",75000,"PARIS"),
+			(32,"BOULEVARD MOZARD",75000,"PARIS"),(11,"PLACE DE LA NATION",75011,"PARIS"),(10,"RUE ANATOLE DE LA FORGE",75017,"PARIS"),(21,"RUE FAIDHERBE",55011,"PARIS"),
+			(133,"AVENUE SUFFREN",75007,"PARIS"),(59,"RUE GEOFFROY-SAINT-HILLAIRE",75005,"PARIS"),(1953,"CHARLE LE ROI",67000,"STRASBOURG"),(20,"FOOTIX",75000,"PARIS"),
+			(975,"RUE BAUDELAIRE",76600,"HAVRE"),(57,"PLACE MICHELLIN",59000,"LILLE"),(1035,"RUE DES POIRIER",54670,"CUSTINE"),(99,"BOULEVARD GAMBETA",54670,"CUSTINE");
             
 insert into Personne (nomPersonne, prenomPersonne, idAdresse, telPersonne, emailPersonne)
-	values ("Martin","Pierre",1,0603487571,"Martin.Pierre@gmail.com"),("Durand","Marie",2,0611824977,"Durant.Marie@gmail.com"),("Petit","Jonathan",3,0622030849,"Petit.Jonathan@gmail.com"),
-			("Duvet","Honorine",4,0615084926,"Duvet.Honorine@gmail.com"),("Pierrard","Laetitia",5,0648596120,"Pierrard.Laetitia@gmail.com"),("Gallet","Anne",6,0622487594,"Gallet.Anne@gmail.com"),
-            ("Malka","Michel",7,0628497557,"Malka.Michel@gmail.com"),("Khebichat","Omar",8,0603518774,"Khebichat.Omar@gmail.com"),("Burseaux","Sarah",9,0623351554,"Burseaux.Sarah@gmail.com"),
-			("Rabah","Nacera",10,0659889589,"Rabah.Nacera@gmail.com");
-
+	values ("MARTIN","PIERRE",1,0603487571,"MARTIN.PIERRE@GMAIL.COM"),("DURAND","MARIE",2,0611824977,"DURANT.MARIE@GMAIL.COM"),("PETIT","JONATHAN",3,0622030849,"PETIT.JONATHAN@GMAIL.COM"),
+			("DUVET","HONORINE",4,0615084926,"DUVET.HONORINE@GMAIL.COM"),("PIERRARD","LAETITIA",5,0648596120,"PIERRARD.LAETITIA@GMAIL.COM"),("GALLET","ANNE",6,0622487594,"GALLET.ANNE@GMAIL.COM"),
+            ("MALKA","MICHEL",7,0628497557,"MALKA.MICHEL@GMAIL.COM"),("KHEBICHAT","OMAR",8,0603518774,"KHEBICHAT.OMAR@GMAIL.COM"),("BURSEAUX","SARAH",9,0623351554,"BURSEAUX.SARAH@GMAIL.COM"),
+			("RABAH","NACERA",10,0659889589,"RABAH.NACERA@GMAIL.COM"),("NOUVEAU","CLEMENTINE",15,0659487956,"NOUVEAU.CLEMENTINE@GMAIL.COM"),("PINO","RICHARD",16,0612365986,"PINO.RICHARD@GMAIL.COM");
+            
 insert into mutuelle(nomMut, idAdresse, telMut, emailMut, depMut, tauxRembMut)
-	values ("Axa",11, 0619858875,"axa.serviceClients@gmail.com",67,100),("Mgen",12, 0600235898,"mgen.serviceClients@gmail.com",75,100),("Maaf",13,0698598748,"maaf.serviceClients@gmail.com",76,100),
-			("Alianz",14,0612457849,"alianz.serviceClients@gmail.com",67,100);
+	values ("AXA",11, 0619858875,"AXA.SERVICECLIENT@GMAIL.COMm",67,100),("MGEN",12, 0600235898,"MGEN.SERVICECLIENT@GMAIL.COM",75,100),("MAAF",13,0698598748,"MAAF.SERVICECLIENT@GMAIL.COM",76,100),
+			("ALIANZ",14,0612457849,"ALIANZ.SERVICECLIENT@GMAIL.COM",67,100);
             
 insert into  Medecin(idPersonne, numAgrement, speMedecin)
-	values (6,10123456789,"endocrinologue"),(7,15847754886,"pneumologue"),(8,35148774956,"generaliste"),(9,31547848875,"pediatre"),(10,84975989571,"cardiologue");
+	values (6,10123456789,"ENDOCRINOLOGUE"),(7,15847754886,"PNEUMOLOGUE"),(8,35148774956,"GENERALISTE"),(9,31547848875,"PEDIATRE"),(10,84975989571,"CARDIOLOGUE");
 
 insert into Patient(idPersonne,idMut, dateNaisPat, numSecuPat)
 	values (1,1,"1997-01-01","197017512348622"),(2,3,"2000-05-11","200057533277804"),(3,1,"1990-01-31","190017559644898"),(4,4,"1993-06-27","293087510237157"),(5,2,"1985-11-13","285117511247862");
     
 insert into Ordonance(dateOrdo,idPat, idMedecin)
-	values ("2023-8-22",1,1),("2023-7-12",2,1),("2022-01-03",4,2),("2023-8-22",3,2),("2023-5-26",5,3),("2023-7-12",2,3),("2022-1-03",4,3),("2023-8-22",5,4),("2023-5-26",3,4),("2023-5-26",1,5);
+	values ("2023-08-22",1,1),("2023-7-12",02,1),("2022-01-03",4,2),("2023-08-22",3,2),("2023-05-26",5,3),("2023-07-12",2,3),("2022-01-03",4,3),("2023-08-22",5,4),("2023-05-26",3,4),("2023-05-26",1,5);
     
 insert into Medicament(nomMed, cateMed, prixMed, dateServiceMed, quantiteMed)
-	values ("Analgésique","Analgesiques",15,"2023-2-01",50),("Antispasmodiques","Analgesiques",26,"2020-9-01",36),("Corticoïdes","Analgesiques",15,"2021-7-01",23),
-			("beta-lactamines","Antibiotiques",12,"2023-2-01",12),("Polymyxines","Antibiotiques",24,"2022-6-01",24),("Tétracyclines","Antibiotiques",30,"2023-2-01",6),
-            ("Antituberculeux","Antitubertuleux",36,"2022-12-01",14),("Antifongiques","Antimycosiques",11,"2020-9-01",62),("Bêta-bloquants","Cardiologie",24,"2022-6-01",24),
-            ("Correcteurs des bradycardies","Cardiologie",15,"2023-2-01",100),("Diurétiques","Cardiologie",38,"2023-8-01",70),("Antiacnéiques","Dermatologie",52,"2022-6-01",24),
-            ("Antiseptiques","Dermatologie",26,"2022-2-01",83),("Hormones thyroïdiennes","Endocronologie",27,"2022-6-1",6),("Androgènes","Endrocrinologie",33,"2022-2-01",2),
-            ("Antidiarrhéiques","Gastro-enterologie",12,"2022-6-01",54);
+	values ("ANALGESIQUE","ANALGESIQUE",15,"2023-02-01",50),("ANTISPASMODIQUES","ANALGESIQUE",26,"2020-09-01",36),("CORTICOIDE","ANALGESIQUE",15,"2021-07-01",23),
+			("BETA-LACTAMINES","ANTIBIOTIQUES",12,"2023-02-01",12),("POLYMYXINES","ANTIBIOTIQUES",24,"2022-06-01",24),("TETRACICLINES","ANTIBIOTIQUES",30,"2023-02-01",6),
+            ("ANTITUBERCULEUX","ANTITUBERCULEUX",36,"2022-12-01",14),("ANTIFIONGIQUES","ANTIMYCOSIQUES",11,"2020-09-01",62),("BETA-BLOQUANT","CARDIOLOGIE",24,"2022-06-01",24),
+            ("CORRECTEUR DES  BRADYCARDIES","CARDIOLOGIE",15,"2023-02-01",100),("DIURETIQUE","CARDIOLOGIE",38,"2023-08-01",70),("ANTIACNEIQUE","DERMATOLOGIE",52,"2022-06-01",24),
+            ("ANTISEPTIQUES","DERMATOLOGIE",26,"2022-02-01",83),("HORMONE THYROIDIENNES","ENDOCRINOLOGIE",27,"2022-06-01",6),("ANDROGENES","ENDOCRINOLOGIE",33,"2022-02-01",2),
+            ("ANTIDIARRHEIQUES","GASTRO-ENTEROLOGIE",12,"2022-06-01",54);
             
 insert into  achat(idOrdo, idPat)
 	values (1,1),(2,2),(3,4),(4,3),(5,5),(6,2),(7,4),(8,5),(9,3),(10,1);
@@ -170,3 +192,46 @@ insert into contient(idOrdo, idMed)
     
 insert into panier(idmed, idachat)
 	values(1,1),(14,1),(15,1),(2,8),(2,4),(8,5),(9,6),(5,2),(1,4),(5,1),(2,1),(4,5),(2,3),(6,5),(8,7),(5,9);
+
+insert into login(nomLogin, MDPLogin, roleLogin)
+	values('pharmacien', '$2y$10$.qkbukzzX21D.bqbI.B2R.tvWP90o/Y16QRWVLodw51BHft7ZWbc.', 'PHARMACIEN'),
+			('admin', '$2y$10$kp1V7UYDEWn17WSK16UcmOnFd1mPFVF6UkLrOOCGtf24HOYt8p1iC', 'ADMIN');
+
+insert into employe(idPersonne, dateNais)
+	values (11,"1995-09-22"),(12,"1980-10-05");
+    
+delimiter |
+create trigger delete_patient_personne
+before delete on Patient
+for each row
+begin
+	delete from personne where personne.idpersonne = old.idpersonne;
+end |
+delimiter ;
+
+delimiter |
+create trigger delete_personne_adresse
+before delete on personne
+for each row
+begin
+	delete from adresse where adresse.idadresse = old.idadresse;
+end |
+delimiter ;
+
+delimiter |
+create trigger delete_medecin_personne
+before delete on Medecin
+for each row
+begin
+	delete from personne where personne.idpersonne = old.idpersonne;
+end |
+delimiter ;
+
+delimiter |
+create trigger delete_employe_personne
+before delete on Employe
+for each row
+begin
+	delete from personne where personne.idpersonne = old.idpersonne;
+end |
+delimiter ;
