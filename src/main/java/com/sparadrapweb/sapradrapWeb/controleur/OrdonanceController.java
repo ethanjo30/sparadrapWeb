@@ -3,9 +3,8 @@ package com.sparadrapweb.sapradrapWeb.controleur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 import com.sparadrapweb.sapradrapWeb.model.Contient;
 import com.sparadrapweb.sapradrapWeb.model.Medicament;
@@ -55,18 +54,5 @@ public class OrdonanceController {
 	    model.addAttribute("patients", listPatient);
 
 	return "Achat/homeSansOrdonance";
-	}
-
-	@PostMapping("/saveSansOrdo")
-	public String saveSansOrdo(Ordonance ordonance, BindingResult resultat) {
-
-		if(resultat.hasErrors()) {
-			return "Patient/formUpdatePatient";
-		}
-
-		/*adresseREPO.save(patient.personne.adresse);
-		personneREPO.save(patient.personne);
-		patientRepo.save(patient);*/
-		return"redirect:/saveSansOrdo";
 	}
 }
