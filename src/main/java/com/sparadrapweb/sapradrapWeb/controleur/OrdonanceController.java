@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 import com.sparadrapweb.sapradrapWeb.model.Contient;
+import com.sparadrapweb.sapradrapWeb.model.Historique;
 import com.sparadrapweb.sapradrapWeb.model.Medicament;
 import com.sparadrapweb.sapradrapWeb.model.Ordonance;
 import com.sparadrapweb.sapradrapWeb.model.Patient;
@@ -30,6 +31,7 @@ public class OrdonanceController {
 	@Autowired
 	private MedicamentRepo medicamentRepo;
 
+
 	@GetMapping("/AvecOrdonance")
 	public String home(Model model) {
 		Iterable<Ordonance> listOrdonance = ordonancerepo.findAll();
@@ -52,7 +54,8 @@ public class OrdonanceController {
 	    model.addAttribute("medicaments", listMedicament);
 		Iterable<Patient> listPatient = patientRepo.findAll();
 	    model.addAttribute("patients", listPatient);
-
+		Historique historique = new Historique();
+		model.addAttribute("historique", historique);
 	return "Achat/homeSansOrdonance";
 	}
 }

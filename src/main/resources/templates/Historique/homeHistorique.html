@@ -38,7 +38,7 @@
                             <tr th:each="historique: ${historiques}">
                                 <td><span th:text="${#dates.format(historique.datehisto, 'dd/MM/yyyy')}"></span></td>
                                 <td><span th:text="${historique.nommed}"></span></td>
-                                <td><span th:text="${historique.nompat}"></span></td>
+                                <td><span th:text="${historique.patient}"></span></td>
                             </tr>
                         </tbody>
                     </table>

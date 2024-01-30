@@ -26,13 +26,12 @@ public class Historique {
     @Column(name="dathisto")
 	private Date datehisto;
 
-    @ManyToOne
-    @JoinColumn(name="idmed")
-	private Medicament medicament;
 
-    @ManyToOne
-    @JoinColumn(name="idpat")
-	private Patient patient;
+    @Column(name="nommed")
+	private String nommed;
+
+    @Column(name="patient")
+	private String patient;
 
     @ManyToOne
 	@JoinColumn(name="idachat") 

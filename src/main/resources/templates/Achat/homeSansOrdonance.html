@@ -31,42 +31,47 @@
             </datalist>
         </section>
             <main>
-                <div class="container special">
-                    <div class="H">
-                        <h2 class="h2ordo"><strong>Achat sans ordonance</strong></h2>
-                    </div>
-                    <section class="tabSansOrdo">
-                        <div class="table-responsive">		
-                            <table class="table table-striped table-sm" id="tableAchat">
-                                <thead>
-                                    <tr>
-                                        <th>nom medicament</th>
-                                        <th>categorie</th>
-                                        <th>prix</th>
-                                        <th>Quantite</th>
-                                        <th>total €</th>
-                                    </tr>	
-                                </thead>
-                                <tbody class="listmedicament">
-                                    <tr th:if="${ordonances.empty}">
-                                        <td colspan="5">Aucune donee à afficher</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot class="footer">
-                                    <tr>
-                                        <td class="vide" colspan="3"></td>
-                                        <td>à payer</td>
-                                        <td class="sommeTotal"><input></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="vide" colspan="4"></td>
-                                        <td><button type="submit" class="btn btn-info">Valider</button></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                <form method="post" th:action="@{/saveHistorique}" th:object="${historique}">
+                    <div class="container special">
+                        <div class="H">
+                            <h2 class="h2ordo"><strong>Achat sans ordonance</strong></h2>
                         </div>
-                    </section>
-                </div>
+                        <input type="date" th:value="${#dates.format(historique.datehisto, 'dd/MM/yyyy')}">
+                        <section class="tabSansOrdo">
+                            <div class="table-responsive">		
+                                <table class="table table-striped table-sm" id="tableAchat">
+                                    <thead>
+                                        <tr>
+                                            <th>nom medicament</th>
+                                            <th>categorie</th>
+                                            <th>prix</th>
+                                            <th>Quantite</th>
+                                            <th>total €</th>
+                                        </tr>	
+                                    </thead>
+                                    <tbody class="listmedicament">
+                                        <tr th:if="${ordonances.empty}">
+                                            <td colspan="5">Aucune donee à afficher</td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                    <tfoot class="footer">
+                                        
+                                        <tr>
+                                            <td class="vide" colspan="3"></td>
+                                            <td>à payer</td>
+                                            <td class="sommeTotal"><input></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="vide" colspan="4"></td>
+                                            <td><button type="submit" class="btn btn-info">Valider</button></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </form>
             </main>
         </section>
     <script src="/js/SansOrdo.js"></script>
