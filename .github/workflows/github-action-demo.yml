@@ -1,5 +1,5 @@
 name: GitHub Action Demo
-run-name: $ {{ github.actor }} teste GitHub Action
+run-name: ${{ github.actor }} teste GitHub Action
 on: [push]
 jobs:
   Explore-GitHub-Action:
