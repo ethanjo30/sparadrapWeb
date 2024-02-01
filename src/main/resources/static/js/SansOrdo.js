@@ -7,6 +7,7 @@ let listmedicament = document.querySelectorAll(".listmedicament")
 let data = document.querySelectorAll("#datalistMedicament option")
 
 let newRow = document.createElement("tr");
+console.log(newRow)
 
 medicament.addEventListener("change", () => {
     if (medicament.value !== "") {
@@ -28,6 +29,8 @@ medicament.addEventListener("change", () => {
                     element.appendChild(newRow.cloneNode(true));
                 });
 
+                let tabNom = [];
+
                 // Fonction de mise à jour le total de la colonne
                 function TotalColonneTotal() {
                     let colQuantite = document.querySelectorAll(".quantite input");
@@ -39,12 +42,17 @@ medicament.addEventListener("change", () => {
                         let totalLigne = prixLigne * parseFloat(colQuantite[i].value);
                         colTotal[i].textContent = totalLigne.toFixed(2) + " €";
                         totalGlobal += totalLigne;
-                    }
 
+                        let nomMedicament = colTotal[i].closest("tr").querySelector(".nomMed").textContent;
+                        tabNom.push(nomMedicament);
+                    }
+                        
+                        // met les nom des medicament du tableau dans une varaible 
                     let sommeTotal = document.querySelector(".sommeTotal");
                     sommeTotal.textContent = totalGlobal.toFixed(2) + " €";
                 }
 
+                console.log(tabNom)
                 TotalColonneTotal();
 
                 let colQuantite = document.querySelectorAll(".quantite input");
@@ -58,4 +66,3 @@ medicament.addEventListener("change", () => {
         }
     }
 });
-

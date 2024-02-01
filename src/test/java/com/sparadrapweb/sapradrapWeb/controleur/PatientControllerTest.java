@@ -23,6 +23,5 @@ public class PatientControllerTest {
             mockMvc.perform(get("/Patient"))
             .andExpect(status().is3xxRedirection()) 
             .andExpect(redirectedUrl("http://localhost/login"));
-
     }
 }
