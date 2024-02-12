@@ -103,8 +103,8 @@ create table if not exists Historique
 (
 idHisto int auto_increment,
 datHisto datetime not null,
-nomMed varchar (50),
-patient varchar (50),
+nomMed varchar(100),
+patient varchar(100),
 idAchat int,
 primary key(idHisto),
 constraint fk_Historique_achat foreign key (idAchat) references achat(idachat) ON DELETE cascade
@@ -177,7 +177,7 @@ insert into Medicament(nomMed, cateMed, prixMed, dateServiceMed, quantiteMed)
 	values ("ANALGESIQUE","ANALGESIQUE",15,"2023-02-01",50),("ANTISPASMODIQUES","ANALGESIQUE",26,"2020-09-01",36),("CORTICOIDE","ANALGESIQUE",15,"2021-07-01",23),
 			("BETA-LACTAMINES","ANTIBIOTIQUES",12,"2023-02-01",12),("POLYMYXINES","ANTIBIOTIQUES",24,"2022-06-01",24),("TETRACICLINES","ANTIBIOTIQUES",30,"2023-02-01",6),
             ("ANTITUBERCULEUX","ANTITUBERCULEUX",36,"2022-12-01",14),("ANTIFIONGIQUES","ANTIMYCOSIQUES",11,"2020-09-01",62),("BETA-BLOQUANT","CARDIOLOGIE",24,"2022-06-01",24),
-            ("CORRECTEUR DES  BRADYCARDIES","CARDIOLOGIE",15,"2023-02-01",100),("DIURETIQUE","CARDIOLOGIE",38,"2023-08-01",70),("ANTIACNEIQUE","DERMATOLOGIE",52,"2022-06-01",24),
+            ("CORRECTEUR DES BRADYCARDIES","CARDIOLOGIE",15,"2023-02-01",100),("DIURETIQUE","CARDIOLOGIE",38,"2023-08-01",70),("ANTIACNEIQUE","DERMATOLOGIE",52,"2022-06-01",24),
             ("ANTISEPTIQUES","DERMATOLOGIE",26,"2022-02-01",83),("HORMONE THYROIDIENNES","ENDOCRINOLOGIE",27,"2022-06-01",6),("ANDROGENES","ENDOCRINOLOGIE",33,"2022-02-01",2),
             ("ANTIDIARRHEIQUES","GASTRO-ENTEROLOGIE",12,"2022-06-01",54);
             
