@@ -1,22 +1,41 @@
-version: '3'
 services:
-  db:
-    mysql:
-      image: mysql:8.0
-      volumes:
-        - db_data:/var/lib/mysql
-      restart: always
-      environnement:
-        - MYSQL_DATABASE=
-        - MYSQL_ROOT_PASSWORD= 
+  mysql:
+    image: mysql:latest
+    container_name: mysql_db
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_USER}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - "3307:3306"
 
   maven:
-    image: maven
+    image: maven:latest
+    container_name: maven_container
+    #restart: always
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: [ "sh", "-c", "mvn clean package" ]
 
   spring:
-    image: spring
-
-  application:
-    image: dockerfacile/app
+    image: openjdk:latest
+    container_name: spring_container
+    #restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - maven
+    environment:
+      SPRING_DATASOURCE_URL: ${DB_URL}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - /Bureau/CDA/Projet/Work_Place/sapradrapWeb/target:/app
+      - mydata:/vart/lib/mysql
+    working_dir: /app
+    
+volumes:
+  mydata:
